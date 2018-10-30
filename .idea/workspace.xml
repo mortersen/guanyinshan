@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44ff94b2-6c2e-439b-9fa0-c95e145707c7" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Html_Temp.iml" afterPath="$PROJECT_DIR$/.idea/Html_Temp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html_Temp/settings.py" afterPath="$PROJECT_DIR$/Html_Temp/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/hearder.html" afterPath="$PROJECT_DIR$/template/hearder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/index.html" afterPath="$PROJECT_DIR$/template/index.html" />
-    </list>
+    <list default="true" id="44ff94b2-6c2e-439b-9fa0-c95e145707c7" name="默认的" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
