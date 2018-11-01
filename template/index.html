@@ -1,10 +1,13 @@
 <!-- index.html -->
 {% extends "base.html" %}
+{%  load staticfiles %}
+
   {% block title %}
     闽南口头非遗数据平台
   {% endblock %}
 
   {% block content %}
+
       <div class="container">
         <div class="row">
             <div class="col-lg-12 ">
@@ -57,8 +60,41 @@
              </div>
         </div>
       </div>
+      <h3></h3>
       <div class="container">
-        <h1>这是文章列表！！！。。。。</h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <img src= "{% static 'imgs/redwall_360_358.jpg' %}"  alt="...">
+                    <div class="caption">
+                        <h3>文献数据库</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-primary btn-block" role="button">进入</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <img src="{% static 'imgs/mooou_360358.jpg' %}" alt="...">
+                    <div class="caption">
+                        <h3>口述史料数据库</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-primary btn-block" role="button">进入</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <img src="{% static 'imgs/watch_opera_360-358.jpg' %}" alt="...">
+                    <div class="caption">
+                        <h3>影像资源数据库</h3>
+                        <p>...</p>
+                        <p><a href="#" class="btn btn-primary btn-block" role="button">进入</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
       </div>
 
   {% endblock %}
