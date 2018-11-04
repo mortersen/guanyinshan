@@ -1,0 +1,27 @@
+<!-- news_detail_byid.html -->
+{% extends "base.html" %}
+{%  load staticfiles %}
+
+{% block title %}
+    {{ info.caption }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+				    <li>
+					    <a href="{% url 'index' %}">首页</a>
+				    </li>
+                    <li class="active">
+                        <a href="{% url 'News:news_top_list' %}">资讯</a>
+				    </li>
+                </ul><!--面包屑导航-->
+                <h1>{{ info.caption }}</h1>
+                <small>{{ info.author }}----<cite>{{ info.updatetime }}</cite></small>
+                <p>{{ info.content }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

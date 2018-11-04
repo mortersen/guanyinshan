@@ -20,7 +20,7 @@
                 </ul><!--面包屑导航-->
                 {% for info_item in info %}
                     <blockquote>
-				            <h2 class="bg-success">{{ info_item.caption }}<a href=""></a></h2>
+				            <a href="{% url 'News:news_detail' info_item.id %}"><h2 class="bg-success">{{ info_item.caption }}</h2></a>
                             <small><cite>{{ info_item.updatetime }}</cite></small>
                             <p>{{ info_item.content }}</p>
                             <small> {{ info_item.author }}</small>
