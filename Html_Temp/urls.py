@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,re_path,include
 from django.shortcuts import render,redirect,reverse
+from django.views.static import serve #处理MEDIA_URL 路由
+from Html_Temp.settings import MEDIA_ROOT
 
 
 def index(request):
@@ -29,8 +31,9 @@ def turntoindex(request):
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls,name="admin_page"),
+    path('admin/', admin.site.urls),
     path('index/',index,name='index'),
     path('news/',include('News.urls',namespace='News')),
+    path('media/(?p<path>.*)',serve,{"document_root":MEDIA_ROOT}),#处理MEDIA路由
     re_path(r'',turntoindex),
 ]

@@ -17,9 +17,22 @@
                         <a href="{% url 'News:news_top_list' %}">资讯</a>
 				    </li>
                 </ul><!--面包屑导航-->
-                <h1>{{ info.caption }}</h1>
-                <small>{{ info.author }}----<cite>{{ info.updatetime }}</cite></small>
-                <p>{{ info.content }}</p>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="news-title">
+                        {{ info.caption }}
+                    </div>
+                    <div class="news-status">
+                        {{ info.author }}----{{ info.updatetime }}
+                    </div>
+                    <div class="news-img"><!--如何调取MEDIA中的图片-->
+                        <img src="{{ MEDIA_URL }}{{ pic.path }}" alt="">
+                    </div>
+                    <div class="news-content">
+                        {{ info.content }}
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

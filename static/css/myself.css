@@ -7,7 +7,23 @@
     text-align: center;
 
 }
-.news_top_list_container
-{
-    width : 80%
+
+
+.news-title{
+    font-size:40px;
+    font-weight:bold;
+    line-height:1.5;
+
+}
+
+.news-status{
+    margin-top:10px;
+    font-size:8px;
+    color: #a9a9a9;
+
+}
+
+.news-content{
+    font-size :20px;
+    line-height:1.3;
 }
