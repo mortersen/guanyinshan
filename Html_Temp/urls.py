@@ -16,24 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,re_path,include
 from django.shortcuts import render,redirect,reverse
-from django.views.static import serve #处理MEDIA_URL 路由
-from Html_Temp.settings import MEDIA_ROOT
+
+from django.conf import settings #引入MEDIA_URL,MEDIA_ROOT
+from django.conf.urls.static import static#引入static方法将网址解析转成本地路径解析
 
 
 def index(request):
     return render(request,'index.html')
-
+'''
 
 def turntoindex(request):
     temp_url = reverse('index')
     print(temp_url, request)
     return redirect(temp_url)
-
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',index),
     path('index/',index,name='index'),
     path('news/',include('News.urls',namespace='News')),
-    path('media/(?p<path>.*)',serve,{"document_root":MEDIA_ROOT}),#处理MEDIA路由
-    re_path(r'',turntoindex),
+    #re_path(r'',turntoindex),
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)#用于将media路径解析到本地media

@@ -22,7 +22,10 @@
     color: #a9a9a9;
 
 }
-
+.news-img {
+    display: block;
+    width:90%;
+}
 .news-content{
     font-size :20px;
     line-height:1.3;

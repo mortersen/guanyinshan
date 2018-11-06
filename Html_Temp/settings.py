@@ -63,7 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',#TEMPLATE使用MEDIA_URL
+                'django.template.context_processors.media',#全局模板解析使用TEMPLATE知道MEDIA_URL要按照本地文件方式解析
             ],
         },
     },
@@ -122,6 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 
 MEDIA_URL = "/media/"
 
