@@ -1,4 +1,6 @@
-
+p{
+    text-indent: 2em;
+}
 .footer
 {
     margin-top : 20px;
@@ -23,8 +25,13 @@
 
 }
 .news-img {
+    margin:10px auto;
+}
+.news-img img{
     display: block;
-    width:90%;
+    width:70%;
+    border-radius: 3px;
+    margin: auto auto;
 }
 .news-content{
     font-size :20px;

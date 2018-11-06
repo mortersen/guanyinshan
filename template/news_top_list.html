@@ -22,7 +22,7 @@
                     <blockquote>
 				            <a href="{% url 'News:news_detail' info_item.id %}"><h2 class="bg-success">{{ info_item.caption }}</h2></a>
                             <small><cite>{{ info_item.updatetime }}</cite></small>
-                            <p>{{ info_item.content }}</p>
+                            <p>{{ info_item.content|truncatechars:100|cut:'　'|cut:' ' }}</p>
                             <small> {{ info_item.author }}</small>
 			            </blockquote>
                 {% empty %}

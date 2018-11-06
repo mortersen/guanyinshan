@@ -25,11 +25,11 @@
                     <div class="news-status">
                         {{ info.author }}----{{ info.updatetime }}
                     </div>
-                    <div ><!--如何调取MEDIA中的图片-->
-                        <img class="news-img" src="{{ MEDIA_URL }}{{ pic.path }}" width="600" alt="">
+                    <div class="news-img"><!--如何调取MEDIA中的图片-->
+                        <img src="{{ MEDIA_URL }}{{ pic.path }}" alt="{{ pic.name }}">
                     </div>
                     <div class="news-content">
-                        {{ info.content }}
+                        {{ info.content|cut:'　'|cut:' '|linebreaks }}
                     </div>
                 </div>
 

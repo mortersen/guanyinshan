@@ -31,11 +31,15 @@ def turntoindex(request):
     return redirect(temp_url)
 '''
 
+def managepage(request):
+    return redirect('../admin/')
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('',index),
     path('index/',index,name='index'),
     path('news/',include('News.urls',namespace='News')),
+    path('admin/', admin.site.urls),
+    path('gly/',managepage,name='managepage'),
     #re_path(r'',turntoindex),
 ]
 
