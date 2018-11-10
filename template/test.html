@@ -1,0 +1,46 @@
+<!-- test.html -->
+{% extends "base.html" %}
+{%  load staticfiles %}
+
+{% block title %}
+    测试页面
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 column">
+                <a href="#modal-test" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+                <div class="modal fade" id="modal-test" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				    <div class="modal-dialog" style="width:80%;height:90%; border: 1rem solid rgba(0,0,0,.1);">
+					    <div class="modal-content" style="height: 100%;" >
+                            <!--去掉遮罩窗体的头部
+						    <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							    <h4 class="modal-title" >
+								    标题
+							    </h4>
+						    </div>
+                            -->
+						    <div class="modal-body" style="height: 100%;">
+                                <div id="pdf-content" style = "height:100%;"></div>
+                                <script src="{% static 'js/PDFObject.js' %}"></script>
+                                <script>PDFObject.embed("{{ MEDIA_URL }}test/中国电信移动业务发展战略研究.pdf", "#pdf-content");</script>
+						    </div>
+						    <!--去掉遮罩层的底部元素
+                            <div class="modal-footer">
+							    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        </div>
+					        -->
+					    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block includejs %}
+
+{% endblock %}
