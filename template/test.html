@@ -2,6 +2,11 @@
 {% extends "base.html" %}
 {%  load staticfiles %}
 
+{% block linkcss %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/viewer.min.css' %}">
+{% endblock %}
+
 {% block title %}
     测试页面
 {% endblock %}
@@ -9,10 +14,10 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-12 column">
-                <a href="#modal-test" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+            <div class="col-sm-12 column">
+                <a href="#modal-test" role="button" class="btn btn-success" data-toggle="modal">触发遮罩窗体</a>
                 <div class="modal fade" id="modal-test" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				    <div class="modal-dialog" style="width:80%;height:90%; border: 1rem solid rgba(0,0,0,.1);">
+				    <div class="modal-dialog" style="width:80%;height:95%; border: 1rem solid rgba(0,0,0,.1);">
 					    <div class="modal-content" style="height: 100%;" >
                             <!--去掉遮罩窗体的头部
 						    <div class="modal-header">
@@ -35,12 +40,25 @@
 					    </div>
                     </div>
                 </div>
+                <a href="{{ MEDIA_URL }}test/中国电信移动业务发展战略研究.pdf" download="{{ MEDIA_URL }}test/中国电信移动业务发展战略研究.pdf" class="btn btn-info">下载</a>
             </div>
-
+        <div class="row">
+            <div class="col-sm-12">
+                <script src="{% static 'js/jQuery.js' %}"></script>
+                <script src="{% static 'js/bootstrap.js' %}"></script>
+                <script src="{% static 'js/viewer-jquery.min.js' %}"></script>
+                <ul id="776688">
+                    <li><img src="{{ MEDIA_URL }}PICS/2018/11/05/timg.jpg" alt=""></li>
+                    <li><img src="{{ MEDIA_URL }}PICS/2018/11/05/timg.jpg" alt=""></li>
+                    <li><img src="{{ MEDIA_URL }}PICS/2018/11/05/timg.jpg" alt=""></li>
+                    <li><img src="{{ MEDIA_URL }}PICS/2018/11/05/timg.jpg" alt=""></li>
+                    <li><img src="{{ MEDIA_URL }}PICS/2018/11/05/timg.jpg" alt=""></li>
+                </ul>
+                <script type="text/javascript">
+                    $("#776688").viewer({});
+                </script>
+            </div>
+        </div>
         </div>
     </div>
-{% endblock %}
-
-{% block includejs %}
-
 {% endblock %}
