@@ -1,0 +1,47 @@
+<!--documentdb_base.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    文献资源数据库
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+				        <li>
+					    <a href="{% url 'index' %}">首页</a>
+				    </li>
+                        <li class="active">
+					        文献数据库
+				        </li>
+                    </ul><!--面包屑导航-->
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-3">
+                    <div class="list-group side-bar">
+                        <a class="list-group-item ">期刊</a>
+                        <a class="list-group-item ">学位论文</a>
+                        <a class="list-group-item ">报纸</a>
+                        <a class="list-group-item ">图书</a>
+                        <a class="list-group-item " >其他文献资源</a>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    {% block document_content %}{% endblock %}
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-12" >
+                    {% block pagediv %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
