@@ -1,0 +1,62 @@
+<!--dissertation_detail.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    {{ target.Title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+				        <li>
+					        <a href="{% url 'index' %}">首页</a>
+				        </li>
+                        <li >
+                            <a href="{% url 'DocumentDB:documentdb_main' %}">文献数据库</a>
+				        </li>
+                        <li >
+                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文库</a>
+                        </li>
+                        <li class="active">
+                            {{ target.Title }}
+                        </li>
+                    </ul><!--面包屑导航-->
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-3">
+                    <div class="list-group side-bar">
+                        <a class="list-group-item " href="{% url 'DocumentDB:songbook' %}">歌册</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:operatext' %}">戏曲文本</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:periodical' %}">期刊</a>
+                        <a class="list-group-item active" href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:books' %}">图书</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:newspaper' %}">报纸</a>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    {% block document_content %}
+
+                        {{ target.Title }}
+                        {{ target.Keywords }}
+
+                    {% endblock %}
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-12" >
+                    {% block pagediv %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

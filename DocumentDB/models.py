@@ -30,30 +30,31 @@ class Periodical(models.Model):
 
 
 #创建学位论文表
-class DegreeThesis(models.Model):
+class Dissertation(models.Model):
     #datatype = models.PositiveIntegerField(verbose_name='类型')
-    caption = models.CharField(max_length=200,verbose_name='论文题目')
-    author = models.CharField(max_length=50,verbose_name="论文作者")
-    tertiaryauthor = models.CharField(max_length=50,verbose_name='指导教师')
-    publisher = models.CharField(max_length=50,verbose_name="发表单位")
-    year = models.CharField(max_length=10,verbose_name='哪年出版的')
-    volume = models.CharField(max_length=10,verbose_name="学位级别")
-    pages = models.CharField(max_length=10,verbose_name='共有几页')
-    issue = models.CharField(max_length=10,verbose_name='期')
+    Title = models.CharField(max_length=200,verbose_name='论文题目')
+    Author = models.CharField(max_length=50,verbose_name="论文作者")
+    TertiaryAuthor = models.CharField(max_length=50,verbose_name='指导教师')
+    Publisher = models.CharField(max_length=50,verbose_name="发表单位")
+    Year = models.CharField(max_length=10,verbose_name='发表年份')
+    Volume = models.CharField(max_length=10,verbose_name="学位级别")
+    Pages = models.CharField(max_length=10,verbose_name='共有几页')
+    Issue = models.CharField(max_length=10,verbose_name='期')
     #pubtime = models.DateTimeField(verbose_name='出版时间')
-    keywords = models.CharField(max_length=100,verbose_name='关键词')
-    abstract =models.TextField(verbose_name='内容摘要')
+    Keywords = models.CharField(max_length=100,verbose_name='关键词')
+    Abstract =models.TextField(verbose_name='内容摘要')
     #srcdatabase = models.CharField(max_length=50,verbose_name='来源数据库')
-    updatetime = models.DateTimeField(auto_now=True)
-    path = models.FileField(upload_to='DEGREETHESIS/%Y/%m',verbose_name='上传本地学位论文文件')
+    UpdateTime = models.DateTimeField(auto_now=True)
+    FilePath = models.FileField(upload_to='DEGREETHESIS/%Y/%m',verbose_name='上传本地学位论文文件')
     #dataformat = models.CharField(max_length=20,verbose_name='数据格式，默认PDF')
-    isc35n = models.BooleanField(verbose_name='与陈三五娘有关')
+    URL = models.URLField(verbose_name='链接地址')
+    Isc35n = models.BooleanField(default=False,verbose_name='是否与陈三五娘相关')
 
     def __str__(self):
-        return self.caption
+        return self.Title
 
     class Meta:
-        ordering = ['-updatetime']
+        ordering = ['-UpdateTime']
         verbose_name_plural = "学位论文信息表"
         verbose_name = "学位论文信息表"
 

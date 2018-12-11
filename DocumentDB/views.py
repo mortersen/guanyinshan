@@ -1,9 +1,59 @@
-from django.shortcuts import render,Http404
-from django.core.paginator import Paginator
-from .models import Periodical
+from django.shortcuts import render,Http404,HttpResponse
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from .models import Periodical,Dissertation
 
 
 # Create your views here.
+def documentdb_main(request):
+    return render(request,'documentdb/documentdb_main.html')
+
+
+def songbook(request):
+    return HttpResponse('Building')
+
+
+def operatext(request):
+    return HttpResponse('Building')
+
+
+def nanyinopern(request):
+    return HttpResponse('南音曲谱 Building')
+
+
+def periodical(request):
+    return HttpResponse('Building')
+
+
+def dissertation(request):
+    list = Dissertation.objects.all()
+    page = request.GET.get('page')
+
+    paginator = Paginator(list,20)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+
+def dissertation_detail(request,id):
+    target = Dissertation.objects.get(id = id)
+    return render(request,'documentdb/dissertation_detail.html',{'target':target})
+
+
+def books(request):
+    return HttpResponse('Building')
+
+
+def newspaper(request):
+    return HttpResponse('Building')
+
 
 def periodical_main(request):
 

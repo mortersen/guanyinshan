@@ -1,0 +1,150 @@
+<!--documentdb_main.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    文献资源数据库
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+				        <li>
+					    <a href="{% url 'index' %}">首页</a>
+				    </li>
+                        <li class="active">
+					        文献数据库
+				        </li>
+                    </ul><!--面包屑导航-->
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-3">
+                    <div class="list-group side-bar">
+                        <a class="list-group-item " href="{% url 'DocumentDB:songbook' %}">歌册</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:operatext' %}">戏曲文本</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:periodical' %}">期刊</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:books' %}">图书</a>
+                        <a class="list-group-item " href="{% url 'DocumentDB:newspaper' %}">报纸</a>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    {% block document_content %}
+                        <table class="table table-striped">
+				            <thead>
+					            <tr>
+                                    <th></th>
+						            <th>
+                                        <span style="color:red;font-size:20px;">共有文献资料：</span>
+						            </th>
+						            <th></th>
+                                    <th>
+                                        <span style="color:red;font-size:20px;">77777条</span>
+                                    </th>
+                                </tr>
+				            </thead>
+				            <tbody>
+					            <tr class="" >
+						            <td>
+						            </td>
+						            <td>
+                                        <a href="{% url 'DocumentDB:songbook' %}">歌册</a>
+						            </td>
+						            <td>
+						            </td>
+						            <td>
+							            Default
+						            </td>
+					            </tr>
+					            <tr class="success">
+						<td>
+						</td>
+						<td>
+                            <a href="{% url 'DocumentDB:operatext' %}">戏曲文本</a>
+						</td>
+						<td>
+						</td>
+						<td>
+							Approved
+						</td>
+					</tr>
+					            <tr class="warning">
+						<td>
+						</td>
+						<td>
+                            <a href="{% url 'DocumentDB:periodical' %}">期刊</a>
+						</td>
+						<td>
+						</td>
+						<td>
+							Declined
+						</td>
+					</tr>
+                                <tr class="info">
+						<td>
+						</td>
+						<td>
+                            <a href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
+						</td>
+						<td>
+						</td>
+						<td>
+							Declined
+						</td>
+					</tr>
+					            <tr class="">
+						<td>
+						</td>
+						<td>
+                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
+						</td>
+						<td>
+						</td>
+						<td>
+							Pending
+						</td>
+					</tr>
+					            <tr class="success">
+						<td>
+						</td>
+						<td>
+                            <a href="{% url 'DocumentDB:books' %}">图书</a>
+						</td>
+						<td>
+						</td>
+						<td>
+							Call in to confirm
+						</td>
+					</tr>
+                                <tr class="warning">
+						            <td>
+						            </td>
+						            <td>
+                                        <a href="{% url 'DocumentDB:newspaper' %}">报纸</a>
+						            </td>
+						            <td>
+						            </td>
+						            <td>
+							            Default
+						            </td>
+					            </tr>
+				            </tbody>
+			            </table>
+                    {% endblock %}
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-12" >
+                    {% block pagediv %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
