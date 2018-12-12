@@ -4,27 +4,38 @@ from django.db import models
 
 #创建期刊表
 class Periodical(models.Model):
-    type = models.CharField(max_length=20,verbose_name='期刊分类')
-    author = models.CharField(max_length=100,verbose_name='作者')
-    caption = models.CharField(max_length=200,verbose_name='题名')
-    journal = models.CharField(max_length=200,verbose_name='来自何期刊')
-    year = models.CharField(max_length=10,verbose_name="出版年份")
-    data = models.DateField(null=True,verbose_name='出版日期YYYY-MM-DD')
-    issue = models.CharField(max_length=10,verbose_name='第几期出版')
-    pages = models.CharField(max_length=10,verbose_name='哪几页刊载')
-    memo = models.CharField(max_length=10,verbose_name='总共几页')
-    keywords = models.CharField(max_length=100,verbose_name='关键词')
-    organization = models.CharField(max_length=50,verbose_name='作者所属机构')
-    abstract = models.TextField(verbose_name='内容摘要')
-    path = models.FileField(upload_to='PERIODICALS/%Y/%m',verbose_name='上传本地期刊文件')
-    updatetime = models.DateTimeField(auto_now=True)
-    isc35n = models.BooleanField(verbose_name='与陈三五娘有关')
+    TYPE_CHOICE = \
+        (
+            ('MC','民间传说'),
+            ('MG','民间歌谣'),
+            ('MS','民间故事'),
+            ('XQ','戏曲'),
+            ('MY','民间谚语'),
+            ('MM','民间谜语'),
+            ('QT','其他'),
+        )
+    TypeOf = models.CharField(max_length=2,choices=TYPE_CHOICE,default='QT',verbose_name='期刊分类')
+    Author = models.CharField(max_length=100,verbose_name='作者')
+    Title = models.CharField(max_length=200,verbose_name='题名')
+    URL = models.URLField(verbose_name='链接地址')
+    Journal = models.CharField(max_length=200,verbose_name='来自何期刊')
+    Year = models.CharField(max_length=10,verbose_name="出版年份")
+    Date = models.DateField(null=True,verbose_name='出版日期YYYY-MM-DD')
+    Issue = models.CharField(max_length=10,verbose_name='第几期出版')
+    Pages = models.CharField(max_length=10,verbose_name='哪几页刊载')
+    Memo = models.CharField(max_length=10,verbose_name='总共几页')
+    Keywords = models.CharField(max_length=100,verbose_name='关键词')
+    AuthorAffiliation = models.CharField(max_length=50,verbose_name='作者所属机构')
+    Abstract = models.TextField(verbose_name='内容摘要')
+    FilePath = models.FileField(upload_to='PERIODICALS/%Y/%m',verbose_name='上传本地期刊文件')
+    UpdateTime = models.DateTimeField(auto_now=True)
+    Isc35n = models.BooleanField(verbose_name='与陈三五娘有关')
 
     def __str__(self):
-        return self.caption
+        return self.Title
 
     class Meta:
-        ordering = ['-updatetime']
+        ordering = ['-UpdateTime']
         verbose_name = "期刊数据表"
         verbose_name_plural = '期刊数据表'
 
