@@ -21,7 +21,9 @@ def nanyinopern(request):
 
 
 def periodical(request):
-    return HttpResponse('Building')
+
+
+    return render(request,'documentdb/periodical.html')
 
 
 def dissertation(request):

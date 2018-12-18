@@ -1,10 +1,10 @@
-<!--dissertation.html-->
+<!--periodical.html-->
 {% extends "base.html" %}
 {% load staticfiles %}
 
 
 {% block title %}
-    学位论文
+    期刊数据
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
             <div>
                 <div class="col-sm-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li id="left-navbar">
+                        <li class="active" id="left-navbar">
                             <a href="{% url 'DocumentDB:periodical' %}">期刊
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
                                     <span class="glyphicon glyphicon-list "></span>
@@ -44,7 +44,7 @@
                                 </ul>
                             </a>
                         </li>
-                        <li class="active"><a href="{% url 'DocumentDB:dissertation' %}">学位论文</a></li>
+                        <li><a href="{% url 'DocumentDB:dissertation' %}">学位论文</a></li>
                         <li><a href="{% url 'DocumentDB:books' %}">图书</a></li>
                         <li><a href="{% url 'DocumentDB:newspaper' %}">报纸</a></li>
                         <li><a href="{% url 'DocumentDB:songbook' %}">歌册</a></li>
@@ -58,7 +58,7 @@
 				            <thead>
 					            <tr>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">论文题目</span>
+                                        <span style="color:dimgrey;font-size:20px;">期刊标题</span>
 						            </th>
                                     <th>
                                         <span style="color:dimgrey;font-size:20px;">学位</span>
@@ -94,7 +94,7 @@
 						            </td>
 					            </tr>
                                 {% empty %}
-                                    抱歉！暂无学位论文数据
+                                    抱歉！暂无期刊数据
                                 {% endfor %}
 				            </tbody>
 			            </table>
