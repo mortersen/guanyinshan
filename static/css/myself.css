@@ -61,3 +61,8 @@ p{
 .periodical-paginator {
     margin: 0 auto;
 }
+#documentdb_side-bar .list-group-item{
+    font-size:18px;
+    line-height:1.4;
+    color: #5e5e5e;
+}

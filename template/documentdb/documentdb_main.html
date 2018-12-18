@@ -24,23 +24,26 @@
             </div>
             <div>
                 <div class="col-sm-3">
-                    <div class="list-group side-bar" id="documentdb_side-bar">
-                        <div class="list-group-item active" >期刊
-                            <a data-toggle="collapse" data-parent="#documentdb_side-bar" href="#collapseone"><span class="badge pull-right"><span class="glyphicon glyphicon-list"></span></span></a>
-                            <div id="collapseone"  class="collapse  list-group" >
-                                <a class="list-group-item " href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
-                                <a class="list-group-item "  href="{% url 'DocumentDB:periodical' %}">期刊</a>
-                            </div>
-                        </div>
-                        <a class="list-group-item " href="{% url 'DocumentDB:songbook' %}">歌册</a>
-                        <a class="list-group-item " href="{% url 'DocumentDB:operatext' %}">戏曲文本</a>
-                        <a class="list-group-item " href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
-                        <a class="list-group-item "  href="{% url 'DocumentDB:periodical' %}">期刊</a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
 
-                        <a class="list-group-item " href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
-                        <a class="list-group-item " href="{% url 'DocumentDB:books' %}">图书</a>
-                        <a class="list-group-item " href="{% url 'DocumentDB:newspaper' %}">报纸</a>
-                    </div>
+                            <a href="" >Home</a>
+                            <ul >
+                                <a data-toggle="collapse" data-parent="#documentdb_side-bar" href="#collapseone">
+                                    <span class="badge "><span class="glyphicon glyphicon-chevron-right"></span></span>
+                                </a>
+                                <ul id="collapseone"  class="nav nav-pills nav-stacked collapse" >
+                                    <li><a href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a></li>
+                                    <li><a href="{% url 'DocumentDB:periodical' %}">期刊</a></li>
+                                </ul>
+
+                            </ul>
+
+
+                        </li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Messages</a></li>
+                    </ul>
                 </div>
                 <div class="col-sm-9">
                     {% block document_content %}
