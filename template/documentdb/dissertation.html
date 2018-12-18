@@ -102,9 +102,33 @@
                 </div>
             </div>
             <div>
-                <div class="col-sm-12" >
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9" >
                     {% block pagediv %}
 
+                            <ul class="pager">
+                                {% if  cur_dissertation.number == '1' %}
+                                    <li class="disabled">
+                                        <a href="">首页</a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="">首页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    <a href="">上一页</a>
+                                </li>
+                                <li>
+                                    <a href="">下一页</a>
+                                </li>
+                                <li>
+                                    <a href="">末页</a>
+                                </li>
+                                <li>
+                                    <input type="text">
+                                </li>
+                            </ul>
                     {% endblock %}
                 </div>
             </div>
