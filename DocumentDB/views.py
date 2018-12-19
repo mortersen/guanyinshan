@@ -29,8 +29,8 @@ def periodical(request):
 def dissertation(request):
     list = Dissertation.objects.all()
     page = request.GET.get('page')
-    print(page)
-    paginator = Paginator(list,2)
+    #print(page)
+    paginator = Paginator(list,1)
 
     try:
         cur_dissertation = paginator.page(page)
@@ -40,8 +40,8 @@ def dissertation(request):
     except EmptyPage:
         cur_dissertation = paginator.page(paginator.num_pages)
 
-    print(cur_dissertation.paginator.count)
-    print(cur_dissertation.number())
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
     return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
 
 
