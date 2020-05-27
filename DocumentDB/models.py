@@ -42,15 +42,26 @@ class Periodical(models.Model):
 
 #创建学位论文表
 class Dissertation(models.Model):
+    TYPE_CHOICE = \
+        (
+            ('MC', '民间传说'),
+            ('MG', '民间歌谣'),
+            ('MS', '民间故事'),
+            ('XQ', '戏曲'),
+            ('YM', '民间谚语（谜语）'),
+            ('QT', '其他'),
+        )
+    TypeOf = models.CharField(max_length=2, choices=TYPE_CHOICE, default='QT', verbose_name='论文分类')
     #datatype = models.PositiveIntegerField(verbose_name='类型')
     Title = models.CharField(max_length=200,verbose_name='论文题目')
     Author = models.CharField(max_length=50,verbose_name="论文作者")
     TertiaryAuthor = models.CharField(max_length=50,verbose_name='指导教师')
     Publisher = models.CharField(max_length=50,verbose_name="发表单位")
     Year = models.CharField(max_length=10,verbose_name='发表年份')
-    Volume = models.CharField(max_length=10,verbose_name="学位级别")
-    Pages = models.CharField(max_length=10,verbose_name='共有几页')
-    Issue = models.CharField(max_length=10,verbose_name='期')
+    Volume = models.CharField(max_length=10,verbose_name="学位层次")
+    Pages = models.CharField(max_length=10,verbose_name='在哪几页')
+    Memo = models.CharField(max_length=10,verbose_name='共有几页')
+    #Issue = models.CharField(max_length=10,verbose_name='期')
     #pubtime = models.DateTimeField(verbose_name='出版时间')
     Keywords = models.CharField(max_length=100,verbose_name='关键词')
     Abstract =models.TextField(verbose_name='内容摘要')
@@ -58,8 +69,8 @@ class Dissertation(models.Model):
     UpdateTime = models.DateTimeField(auto_now=True)
     FilePath = models.FileField(upload_to='DEGREETHESIS/%Y/%m',verbose_name='上传本地学位论文文件')
     #dataformat = models.CharField(max_length=20,verbose_name='数据格式，默认PDF')
-    URL = models.URLField(verbose_name='链接地址')
-    Isc35n = models.BooleanField(default=False,verbose_name='是否与陈三五娘相关')
+    #URL = models.URLField(verbose_name='链接地址')
+    #Isc35n = models.BooleanField(default=False,verbose_name='是否与陈三五娘相关')
 
     def __str__(self):
         return self.Title

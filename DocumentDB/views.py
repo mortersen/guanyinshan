@@ -30,7 +30,7 @@ def dissertation(request):
     list = Dissertation.objects.all()
     page = request.GET.get('page')
     #print(page)
-    paginator = Paginator(list,10)
+    paginator = Paginator(list,8)
 
     try:
         cur_dissertation = paginator.page(page)

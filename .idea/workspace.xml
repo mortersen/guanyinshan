@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44ff94b2-6c2e-439b-9fa0-c95e145707c7" name="默认的" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/DEGREETHESIS/2018/12/django实战项目_内容管理系统cms_一项目搭建及准备__D-Roger.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/DEGREETHESIS/2018/12/django实战项目_内容管理系统cms_一项目搭建及准备__D-Roger_JloOdlk.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/DEGREETHESIS/2018/12/django实战项目_内容管理系统cms_三后台管理admin__D-Roger.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/DEGREETHESIS/2018/12/django实战项目_内容管理系统cms_二数据模型models__D-Roger.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/DEGREETHESIS/2018/12/django实战项目_内容管理系统cms_四视图层views.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/05/timg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/06/12383834180f4376ab2ec0ad71438926.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/06/6eKq-fypsqka0450869.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/06/8d457e93c8134786a48571f025516ef9.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/06/918454542102494fbea1b49cf0c5906e.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/PICS/2018/11/06/u33785642553768945550fm173app49fJPEG.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/test/中国电信移动业务发展战略研究.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DocumentDB/models.py" afterPath="$PROJECT_DIR$/DocumentDB/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DocumentDB/views.py" afterPath="$PROJECT_DIR$/DocumentDB/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,21 +41,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DocumentDB/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="957">
-              <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="345">
+              <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DocumentDB/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="990">
+              <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -135,8 +123,8 @@
         <option value="$PROJECT_DIR$/template/index.html" />
         <option value="$PROJECT_DIR$/template/hearder.html" />
         <option value="$PROJECT_DIR$/template/documentdb/documentdb_main.html" />
-        <option value="$PROJECT_DIR$/DocumentDB/views.py" />
         <option value="$PROJECT_DIR$/DocumentDB/models.py" />
+        <option value="$PROJECT_DIR$/DocumentDB/views.py" />
       </list>
     </option>
   </component>
@@ -295,8 +283,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60264105" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56302524" sideWeight="0.49421966" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6686675" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.73109245" sideWeight="0.49421966" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -644,18 +632,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DocumentDB/views.py">
+    <entry file="file://$PROJECT_DIR$/DocumentDB/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        <state relative-caret-position="990">
+          <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DocumentDB/models.py">
+    <entry file="file://$PROJECT_DIR$/DocumentDB/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="345">
+          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding />
         </state>
       </provider>
