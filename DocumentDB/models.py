@@ -10,18 +10,18 @@ class Periodical(models.Model):
             ('MG','民间歌谣'),
             ('MS','民间故事'),
             ('XQ','戏曲'),
-            ('MY','民间谚语'),
-            ('MM','民间谜语'),
+            ('YM','民间谚语（谜语）'),
             ('QT','其他'),
         )
     TypeOf = models.CharField(max_length=2,choices=TYPE_CHOICE,default='QT',verbose_name='期刊分类')
     Author = models.CharField(max_length=100,verbose_name='作者')
-    Title = models.CharField(max_length=200,verbose_name='题名')
-    URL = models.URLField(verbose_name='链接地址')
-    Journal = models.CharField(max_length=200,verbose_name='来自何期刊')
+    Title = models.CharField(max_length=200,verbose_name='文章标题')
+    #URL = models.URLField(verbose_name='链接地址')
+    Journal = models.CharField(max_length=200,verbose_name='期刊名称')
     Year = models.CharField(max_length=10,verbose_name="出版年份")
-    Date = models.DateField(null=True,verbose_name='出版日期YYYY-MM-DD')
-    Issue = models.CharField(max_length=10,verbose_name='第几期出版')
+    #Date = models.DateField(null=True,verbose_name='出版日期YYYY-MM-DD')
+    Volume = models.CharField(max_length=10,verbose_name='第几卷')
+    Issue = models.CharField(max_length=10,verbose_name='第几期')
     Pages = models.CharField(max_length=10,verbose_name='哪几页刊载')
     Memo = models.CharField(max_length=10,verbose_name='总共几页')
     Keywords = models.CharField(max_length=100,verbose_name='关键词')
@@ -29,7 +29,7 @@ class Periodical(models.Model):
     Abstract = models.TextField(verbose_name='内容摘要')
     FilePath = models.FileField(upload_to='PERIODICALS/%Y/%m',verbose_name='上传本地期刊文件')
     UpdateTime = models.DateTimeField(auto_now=True)
-    Isc35n = models.BooleanField(verbose_name='与陈三五娘有关')
+    #Isc35n = models.BooleanField(verbose_name='与陈三五娘有关')
 
     def __str__(self):
         return self.Title
