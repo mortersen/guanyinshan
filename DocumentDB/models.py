@@ -80,67 +80,49 @@ class Dissertation(models.Model):
         verbose_name_plural = "学位论文信息表"
         verbose_name = "学位论文信息表"
 
-#创建报纸表
-class Newspaper(models.Model):
-    title = models.CharField(max_length=200,verbose_name='标题名')
-    secondarytitle = models.CharField(max_length=100,verbose_name='报刊名称')
-    pubdate = models.DateField(verbose_name='出版日期')
-    edition = models.CharField(max_length=20,verbose_name='第几版次')
-    page = models.CharField(max_length=10,verbose_name='哪几页面刊载')
-    abstract = models.TextField(verbose_name='内容摘要')
-    path = models.FileField(upload_to='NEWSPAPER/%Y/%m',verbose_name='上传本地报纸文件')
-    updatetime = models.DateTimeField(auto_now=True)
-    dataformat = models.CharField(max_length=20,verbose_name="数据格式，默认PDF")
-    isc35n = models.BooleanField(verbose_name='是否与陈三五娘有关')
-
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['-updatetime']
-        verbose_name = "报纸信息表"
-        verbose_name_plural = "报纸信息表"
-
 
 #创建图书资源表
 class Books(models.Model):
-    title = models.CharField(max_length=100,verbose_name="书名")
-    author = models.CharField(max_length=50,verbose_name='创作者或作者')
-    keywords = models.CharField(max_length=100,verbose_name='关键词')
-    abstract = models.TextField(verbose_name='内容那个摘要')
-    createdate = models.DateField(verbose_name='创作日期')
-    dataformat = models.CharField(max_length=20,verbose_name='数据格式，默认PDF')
-    source = models.CharField(max_length=50,verbose_name='图书来源')
-    path = models.FileField(upload_to='BOOKS/%Y/%m',verbose_name='上传本地图书文件')
-    updatetime = models.DateTimeField(auto_now=True)
-    bak = models.CharField(max_length=200,verbose_name='备注信息')
-    isc35n = models.BooleanField(verbose_name='是否与陈三五娘有关')
+    Title = models.CharField(max_length=100,verbose_name="书名")
+    Author = models.CharField(max_length=50,verbose_name='创作者或作者')
+    Year = models.CharField(max_length=10,verbose_name='出版年份')
+    Series = models.CharField(max_length=100,verbose_name='丛书名')
+    Publisher = models.CharField(max_length=50,verbose_name='出版社')
+    Keywords = models.CharField(max_length=100,verbose_name='关键词')
+    Abstract = models.TextField(verbose_name='内容摘要')
+    #createdate = models.DateField(verbose_name='创作日期')
+    #dataformat = models.CharField(max_length=20,verbose_name='数据格式，默认PDF')
+    #source = models.CharField(max_length=50,verbose_name='图书来源')
+    FilePath = models.FileField(upload_to='BOOKS/%Y/%m',verbose_name='上传本地图书文件')
+    Memo = models.CharField(max_length=10, verbose_name='共有几页')
+    UpdateTime = models.DateTimeField(auto_now=True)
+    #bak = models.CharField(max_length=200,verbose_name='备注信息')
+    #isc35n = models.BooleanField(verbose_name='是否与陈三五娘有关')
     def __str__(self):
-        return self.title
+        return self.Title
 
     class Meta:
-        ordering = ['-updatetime']
+        ordering = ['-UpdateTime']
         verbose_name_plural = '图书信息表'
         verbose_name = "图书信息表"
 
-#创建其他文献资源表
-class OtherDocument(models.Model):
-    title = models.CharField(max_length=100,verbose_name='标题或名称')
-    author = models.CharField(max_length=100,verbose_name='作者或转载处')
-    abstract = models.TextField(verbose_name='内容介绍')
-    createdate = models.DateField(verbose_name='收录整理日期')
-    dataformat = models.CharField(max_length=30,verbose_name='数据格式,默认PDF')
-    source = models.CharField(max_length=50,verbose_name='文献来源')
-    path = models.FileField(upload_to='OTHERDOCUMENT/%Y/%m',verbose_name='上传本地文献，默认PDF')
-    updatetime =models.DateTimeField(auto_now=True)
-    bak = models.CharField(max_length=200,verbose_name="备注信息")
-    isc35n = models.BooleanField(verbose_name='是否与陈三五娘有关')
+#创建会议论文资源表
+class ConferencePapers(models.Model):
+
+    Title = models.CharField(max_length=200,verbose_name='论文标题')
+    Author = models.CharField(max_length=50,verbose_name='论文作者')
+    Year = models.CharField(max_length=10, verbose_name='发表年份')
+    SecondaryTitle = models.CharField(max_length=200,verbose_name='会议名称')
+    Publisher = models.CharField(max_length=50, verbose_name='出版社')
+    Keywords = models.CharField(max_length=100, verbose_name='关键词')
+    Abstract = models.TextField(verbose_name='内容摘要')
+    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地会议论文文件')
+    UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        return self.Title
 
     class Meta:
-        ordering = ['-updatetime']
-        verbose_name = '其他文献资源信息表'
-        verbose_name_plural = '其他文献资源信息表'
+        ordering = ['-UpdateTime']
+        verbose_name_plural = '会议论文信息表'
+        verbose_name = "会议论文信息表"

@@ -1,6 +1,6 @@
 from django.shortcuts import render,Http404,HttpResponse
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from .models import Periodical,Dissertation
+from .models import Periodical,Dissertation,Books,ConferencePapers
 
 
 # Create your views here.
