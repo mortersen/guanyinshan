@@ -20,15 +20,15 @@
                             <a href="{% url 'DocumentDB:documentdb_main' %}">文献数据库</a>
 				        </li>
                         <li class="active">
-                            学位论文库
+                            期刊库
                         </li>
                     </ul><!--面包屑导航-->
                 </div>
             </div>
             <div>
-                <div class="col-sm-3">
+                <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active" id="left-navbar">
+                        <li id="left-navbar">
                             <a href="{% url 'DocumentDB:periodical' %}">期刊
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
                                     <span class="glyphicon glyphicon-list "></span>
@@ -37,19 +37,29 @@
                                     <li><a class="text-center" href="">民间传说</a></li>
                                     <li><a class="text-center" href="">民间歌谣</a></li>
                                     <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚语</a></li>
-                                    <li><a class="text-center" href="">民间谜语</a></li>
+                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
                                     <li><a class="text-center" href="">戏曲</a></li>
                                     <li><a class="text-center" href="">其他</a></li>
                                 </ul>
                             </a>
                         </li>
-                        <li><a href="{% url 'DocumentDB:dissertation' %}">学位论文</a></li>
+                        <li id="left-navbar-lw">
+                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文
+                                <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
+                                    <span class="glyphicon glyphicon-list "></span>
+                                </span>
+                                <ul id="collapseone-lw"  class="nav nav-pills nav-stacked collapse" >
+                                    <li><a class="text-center" href="">民间传说</a></li>
+                                    <li><a class="text-center" href="">民间歌谣</a></li>
+                                    <li><a class="text-center" href="">民间故事</a></li>
+                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
+                                    <li><a class="text-center" href="">戏曲</a></li>
+                                    <li><a class="text-center" href="">其他</a></li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li><a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a></li>
                         <li><a href="{% url 'DocumentDB:books' %}">图书</a></li>
-                        <li><a href="{% url 'DocumentDB:newspaper' %}">报纸</a></li>
-                        <li><a href="{% url 'DocumentDB:songbook' %}">歌册</a></li>
-                        <li><a href="{% url 'DocumentDB:operatext' %}">戏曲文本</a></li>
-                        <li><a href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -61,16 +71,13 @@
                                         <span style="color:dimgrey;font-size:20px;">期刊标题</span>
 						            </th>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">学位</span>
+                                        <span style="color:dimgrey;font-size:20px;">刊名</span>
 						            </th>
 						            <th>
                                         <span style="color:dimgrey;font-size:20px;">作者</span>
                                     </th>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">发表单位</span>
-                                    </th>
-                                    <th>
-                                        <span style="color:dimgrey;font-size:20px;">发表年份</span>
+                                        <span style="color:dimgrey;font-size:20px;">年份</span>
                                     </th>
                                 </tr>
 				            </thead>
@@ -78,16 +85,13 @@
                                 {% for item in cur_dissertation %}
 					                <tr class="" >
 						            <td>
-                                        <a href="{% url 'DocumentDB:dissertation_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
+                                        <a href="{% url 'DocumentDB:periodical_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
 						            </td>
                                     <td>
-                                        {{ item.Volume }}
+                                        {{ item.Journal }}
 						            </td>
 						            <td>
                                         {{ item.Author }}
-						            </td>
-						            <td>
-                                        {{ item.Publisher }}
 						            </td>
 						            <td>
 							            {{ item.Year }}
@@ -102,10 +106,59 @@
                 </div>
             </div>
             <div>
-                <div class="col-sm-12" >
-                    {% block pagediv %}
+                <div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        {% block pagediv %}
+                            <ul class="pager">
+                                {% if cur_dissertation.number == 1 %}
+                                    <li class="disabled">
+                                        <span>首页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.has_previous %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.previous_page_number }}">上一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>上一页</span>
+                                    </li>
+                                {% endif %}
 
+                                <li>
+                                    <span>{{ cur_dissertation.number }}&nbspof&nbsp{{ cur_dissertation.paginator.num_pages }}</span>
+                                </li>
+                                {% if cur_dissertation.has_next %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.next_page_number }}">下一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>下一页</span>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.number == cur_dissertation.paginator.num_pages %}
+                                    <li class="disabled">
+                                        <span>末页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+    	                                <a href="?page={{ cur_dissertation.paginator.num_pages }}">末页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    GO<input type="text" size="2">
+                                </li>
+
+                            </ul>
                     {% endblock %}
+                    </div>
+
                 </div>
             </div>
         </div>

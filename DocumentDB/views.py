@@ -5,25 +5,34 @@ from .models import Periodical,Dissertation,Books,ConferencePapers
 
 # Create your views here.
 def documentdb_main(request):
+    #查询数据统计各种文献资源数量后传输进入
     return render(request,'documentdb/documentdb_main.html')
 
 
-def songbook(request):
-    return HttpResponse('Building')
-
-
-def operatext(request):
-    return HttpResponse('Building')
-
-
-def nanyinopern(request):
-    return HttpResponse('南音曲谱 Building')
-
-
 def periodical(request):
+    list = Periodical.objects.all()
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
 
 
-    return render(request,'documentdb/periodical.html')
+
+def periodical_detail(request,id):
+    target = Periodical.objects.get(id=id)
+    return render(request, 'documentdb/periodical_detail.html', {'target': target})
+
 
 
 def dissertation(request):
@@ -45,6 +54,7 @@ def dissertation(request):
     return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
 
 
+
 def dissertation_detail(request,id):
     target = Dissertation.objects.get(id = id)
     return render(request,'documentdb/dissertation_detail.html',{'target':target})
@@ -53,9 +63,6 @@ def dissertation_detail(request,id):
 def books(request):
     return HttpResponse('Building')
 
-
-def newspaper(request):
-    return HttpResponse('Building')
 
 
 def periodical_main(request):
@@ -85,3 +92,7 @@ def periodical_page(request,page_num=1):
         raise Http404('NOT FOUND ID: ' + str(err))
 
     return render(request,'periodical_main.html',content)
+
+
+def conferencepapers(request):
+    return HttpResponse('Building')

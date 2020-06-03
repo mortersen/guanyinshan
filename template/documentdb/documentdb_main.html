@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    文献资源数据库
+    文献资料数据库
 {% endblock %}
 
 {% block content %}
@@ -34,19 +34,29 @@
                                     <li><a class="text-center" href="">民间传说</a></li>
                                     <li><a class="text-center" href="">民间歌谣</a></li>
                                     <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚语</a></li>
-                                    <li><a class="text-center" href="">民间谜语</a></li>
+                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
                                     <li><a class="text-center" href="">戏曲</a></li>
                                     <li><a class="text-center" href="">其他</a></li>
                                 </ul>
                             </a>
                         </li>
-                        <li class=""><a href="{% url 'DocumentDB:dissertation' %}">学位论文</a></li>
+                        <li id="left-navbar-lw">
+                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文
+                                <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
+                                    <span class="glyphicon glyphicon-list "></span>
+                                </span>
+                                <ul id="collapseone-lw"  class="nav nav-pills nav-stacked collapse" >
+                                    <li><a class="text-center" href="">民间传说</a></li>
+                                    <li><a class="text-center" href="">民间歌谣</a></li>
+                                    <li><a class="text-center" href="">民间故事</a></li>
+                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
+                                    <li><a class="text-center" href="">戏曲</a></li>
+                                    <li><a class="text-center" href="">其他</a></li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li><a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a></li>
                         <li><a href="{% url 'DocumentDB:books' %}">图书</a></li>
-                        <li><a href="{% url 'DocumentDB:newspaper' %}">报纸</a></li>
-                        <li><a href="{% url 'DocumentDB:songbook' %}">歌册</a></li>
-                        <li><a href="{% url 'DocumentDB:operatext' %}">戏曲文本</a></li>
-                        <li><a href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -65,11 +75,11 @@
                                 </tr>
 				            </thead>
 				            <tbody>
-					            <tr class="" >
+					            <tr class="warning" >
 						            <td>
 						            </td>
 						            <td>
-                                        <a href="{% url 'DocumentDB:songbook' %}">歌册</a>
+                                        <a href="{% url 'DocumentDB:periodical' %}">期刊</a>
 						            </td>
 						            <td>
 						            </td>
@@ -81,7 +91,7 @@
 						<td>
 						</td>
 						<td>
-                            <a href="{% url 'DocumentDB:operatext' %}">戏曲文本</a>
+                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
 						</td>
 						<td>
 						</td>
@@ -89,40 +99,16 @@
 							Approved
 						</td>
 					</tr>
-					            <tr class="warning">
+					            <tr class="info">
 						<td>
 						</td>
 						<td>
-                            <a href="{% url 'DocumentDB:periodical' %}">期刊</a>
-						</td>
-						<td>
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-                                <tr class="info">
-						<td>
-						</td>
-						<td>
-                            <a href="{% url 'DocumentDB:nanyinopern' %}">南音曲谱</a>
+                            <a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a>
 						</td>
 						<td>
 						</td>
 						<td>
 							Declined
-						</td>
-					</tr>
-					            <tr class="">
-						<td>
-						</td>
-						<td>
-                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
-						</td>
-						<td>
-						</td>
-						<td>
-							Pending
 						</td>
 					</tr>
 					            <tr class="success">
@@ -134,21 +120,9 @@
 						<td>
 						</td>
 						<td>
-							Call in to confirm
+							Pending
 						</td>
 					</tr>
-                                <tr class="warning">
-						            <td>
-						            </td>
-						            <td>
-                                        <a href="{% url 'DocumentDB:newspaper' %}">报纸</a>
-						            </td>
-						            <td>
-						            </td>
-						            <td>
-							            Default
-						            </td>
-					            </tr>
 				            </tbody>
 			            </table>
                     {% endblock %}

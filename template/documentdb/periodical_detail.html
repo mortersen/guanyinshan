@@ -20,7 +20,7 @@
                             <a href="{% url 'DocumentDB:documentdb_main' %}">文献数据库</a>
 				        </li>
                         <li >
-                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文库</a>
+                            <a href="{% url 'DocumentDB:periodical' %}">期刊库</a>
                         </li>
                         <li class="active">
                             {{ target.Title }}
@@ -102,7 +102,7 @@
                         </div>
                         <hr style="margin-top: 4px;margin-bottom: 8px;">
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">摘要：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">主要内容：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
                         </div>
                         <br>
                         <div>
@@ -110,23 +110,13 @@
                         </div>
                         <br>
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">导师：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.TertiaryAuthor }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">作者单位：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.AuthorAffiliation }}</span>
                         </div>
                         <br>
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">发表单位：</span><span style="font-size: 16px">{{ target.Publisher }}</span>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">学位层次：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Volume }}</span>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">发表于：</span><span style="font-size: 16px">{{ target.Year }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">期刊：</span><span style="font-size:16px">{{ target.Journal }}</span><span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">总：</span> <span style="font-size: 16px">{{ target.Memo }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">发表于：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Year }}，第{{ target.Issue }}期</span>
                         </div>
-                        <br>
-                        <div>
-
-                        </div>
-                        <br>
-                        <div>
-
-                        </div>
-
                     {% endblock %}
                 </div>
             </div>
