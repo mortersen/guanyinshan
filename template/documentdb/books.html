@@ -1,10 +1,10 @@
-<!--dissertation.html-->
+<!--periodical.html-->
 {% extends "base.html" %}
 {% load staticfiles %}
 
 
 {% block title %}
-    学位论文
+    图书库
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
                             <a href="{% url 'DocumentDB:documentdb_main' %}">文献数据库</a>
 				        </li>
                         <li class="active">
-                            学位论文库
+                            图书库
                         </li>
                     </ul><!--面包屑导航-->
                 </div>
@@ -43,7 +43,7 @@
                                 </ul>
                             </a>
                         </li>
-                        <li id="left-navbar-lw" class="active">
+                        <li id="left-navbar-lw">
                             <a href="{% url 'DocumentDB:dissertation' %}">学位论文
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
                                     <span class="glyphicon glyphicon-list "></span>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li><a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a></li>
-                        <li><a href="{% url 'DocumentDB:books' %}">图书</a></li>
+                        <li class="active"><a href="{% url 'DocumentDB:books' %}">图书</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -68,19 +68,16 @@
 				            <thead>
 					            <tr>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">论文题目</span>
+                                        <span style="color:dimgrey;font-size:20px;">书名</span>
 						            </th>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">学位</span>
+                                        <span style="color:dimgrey;font-size:20px;">作者</span>
 						            </th>
 						            <th>
-                                        <span style="color:dimgrey;font-size:20px;">作者</span>
+                                        <span style="color:dimgrey;font-size:20px;">出版社</span>
                                     </th>
                                     <th>
-                                        <span style="color:dimgrey;font-size:20px;">发表单位</span>
-                                    </th>
-                                    <th>
-                                        <span style="color:dimgrey;font-size:20px;">发表年份</span>
+                                        <span style="color:dimgrey;font-size:20px;">年份</span>
                                     </th>
                                 </tr>
 				            </thead>
@@ -88,12 +85,9 @@
                                 {% for item in cur_dissertation %}
 					                <tr class="" >
 						            <td>
-                                        <a href="{% url 'DocumentDB:dissertation_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
+                                        <a href="{% url 'DocumentDB:books_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
 						            </td>
                                     <td>
-                                        {{ item.Volume }}
-						            </td>
-						            <td>
                                         {{ item.Author }}
 						            </td>
 						            <td>
@@ -104,7 +98,7 @@
 						            </td>
 					            </tr>
                                 {% empty %}
-                                    抱歉！暂无学位论文数据
+                                    抱歉！暂无期刊数据
                                 {% endfor %}
 				            </tbody>
 			            </table>
@@ -112,9 +106,10 @@
                 </div>
             </div>
             <div>
-                <div class="col-sm-3"></div>
-                <div class="col-sm-9" >
-                    {% block pagediv %}
+                <div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        {% block pagediv %}
                             <ul class="pager">
                                 {% if cur_dissertation.number == 1 %}
                                     <li class="disabled">
@@ -162,6 +157,8 @@
 
                             </ul>
                     {% endblock %}
+                    </div>
+
                 </div>
             </div>
         </div>

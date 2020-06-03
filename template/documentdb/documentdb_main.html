@@ -70,12 +70,12 @@
 						            </th>
 						            <th></th>
                                     <th>
-                                        <span style="color:red;font-size:20px;">77777条</span>
+                                        <span style="color:red;font-size:20px;">{{ documentdb_count }}</span>
                                     </th>
                                 </tr>
 				            </thead>
 				            <tbody>
-					            <tr class="warning" >
+					            <tr class="info" >
 						            <td>
 						            </td>
 						            <td>
@@ -84,7 +84,7 @@
 						            <td>
 						            </td>
 						            <td>
-							            Default
+							            {{ periodical_count }}
 						            </td>
 					            </tr>
 					            <tr class="success">
@@ -96,7 +96,7 @@
 						<td>
 						</td>
 						<td>
-							Approved
+							{{ dissertation_count }}
 						</td>
 					</tr>
 					            <tr class="info">
@@ -108,7 +108,7 @@
 						<td>
 						</td>
 						<td>
-							Declined
+							{{ conferencepapers_count }}
 						</td>
 					</tr>
 					            <tr class="success">
@@ -120,7 +120,7 @@
 						<td>
 						</td>
 						<td>
-							Pending
+							{{ books_count }}
 						</td>
 					</tr>
 				            </tbody>

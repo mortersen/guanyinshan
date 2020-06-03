@@ -13,9 +13,8 @@ urlpatterns = [
     path('dissertation/',dissertation,name='dissertation'),#学位论文,处理翻页
     path('dissertation/<int:id>/',dissertation_detail,name='dissertation_detail'),#学位论文按ID号显示详细页
     path('books/',books,name='books'),#图书
+    path('books/<int:id>/',books_detail,name='books_detail'),#图书详细页
     path('conferencepapers/',conferencepapers,name='conferencepapers'),#会议论文
-
-
-
+    path('conferencepapers/<int:id>/',conferencepapers_detail,name='conferencepapers_detail'),#会议论文详细页
 
 ]
