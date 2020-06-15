@@ -20,7 +20,7 @@
                             <a href="{% url 'DictateDB:dictatedb_main' %}">口述史料库</a>
 				        </li>
                         <li >
-                            <a href="{% url 'DictateDB:operatext' %}">戏曲文本</a>
+                            <a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a>
                         </li>
                         <li class="active">
                             {{ target.Title }}
@@ -31,10 +31,10 @@
             <div>
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
+                        <li><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
                         <li><a href="{% url 'DictateDB:folksong' %}">歌谣</a></li>
                         <li><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
-                        <li><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
+                        <li class="active"><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -73,9 +73,6 @@
                             <a href="{{ MEDIA_URL }}{{ target.FilePath }}" download="{{ MEDIA_URL }}{{ target.FilePath }}" class="glyphicon glyphicon-download-alt"></a>
                         </div>
                         <hr style="margin-top: 4px;margin-bottom: 8px;">
-                        <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">简介：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
-                        </div>
                         <br>
                         <div>
                             <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">资源来源：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.From }}</span>

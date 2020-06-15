@@ -1,0 +1,139 @@
+<!--periodical.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    南音曲谱库
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+				        <li>
+					        <a href="{% url 'index' %}">首页</a>
+				        </li>
+                        <li >
+                            <a href="{% url 'DictateDB:dictatedb_main' %}">口述史料库</a>
+				        </li>
+                        <li class="active">
+                            南音曲谱库
+                        </li>
+                    </ul><!--面包屑导航-->
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-3"><!--左侧导航栏-->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
+                        <li><a href="{% url 'DictateDB:folksong' %}">歌谣</a></li>
+                        <li><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
+                        <li class="active"><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    {% block document_content %}
+                        <table class="table table-bordered">
+				            <thead>
+					            <tr>
+                                    <th>
+                                        <span style="color:dimgrey;font-size:20px;">题名</span>
+						            </th>
+                                    <th>
+                                        <span style="color:dimgrey;font-size:20px;">作者</span>
+						            </th>
+						            <th>
+                                        <span style="color:dimgrey;font-size:20px;">页码</span>
+                                    </th>
+                                    <th>
+                                        <span style="color:dimgrey;font-size:20px;">来源</span>
+                                    </th>
+                                </tr>
+				            </thead>
+				            <tbody>
+                                {% for item in cur_dissertation %}
+					                <tr class="" >
+						            <td>
+                                        <a href="{% url 'DictateDB:southernmusic_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
+						            </td>
+                                    <td>
+                                        {{ item.Author }}
+						            </td>
+						            <td>
+                                        {{ item.Memo  }}
+						            </td>
+						            <td>
+							            {{ item.From }}
+						            </td>
+					            </tr>
+                                {% empty %}
+                                    抱歉！暂无期刊数据
+                                {% endfor %}
+				            </tbody>
+			            </table>
+                    {% endblock %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        {% block pagediv %}
+                            <ul class="pager">
+                                {% if cur_dissertation.number == 1 %}
+                                    <li class="disabled">
+                                        <span>首页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.has_previous %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.previous_page_number }}">上一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>上一页</span>
+                                    </li>
+                                {% endif %}
+
+                                <li>
+                                    <span>{{ cur_dissertation.number }}&nbspof&nbsp{{ cur_dissertation.paginator.num_pages }}</span>
+                                </li>
+                                {% if cur_dissertation.has_next %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.next_page_number }}">下一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>下一页</span>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.number == cur_dissertation.paginator.num_pages %}
+                                    <li class="disabled">
+                                        <span>末页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+    	                                <a href="?page={{ cur_dissertation.paginator.num_pages }}">末页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    GO<input type="text" size="2">
+                                </li>
+
+                            </ul>
+                    {% endblock %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

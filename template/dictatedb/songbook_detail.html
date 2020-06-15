@@ -20,7 +20,7 @@
                             <a href="{% url 'DictateDB:dictatedb_main' %}">口述史料库</a>
 				        </li>
                         <li >
-                            <a href="{% url 'DictateDB:operatext' %}">戏曲文本</a>
+                            <a href="{% url 'DictateDB:songbook' %}">歌册</a>
                         </li>
                         <li class="active">
                             {{ target.Title }}
@@ -31,9 +31,9 @@
             <div>
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
+                        <li><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
                         <li><a href="{% url 'DictateDB:folksong' %}">歌谣</a></li>
-                        <li><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
+                        <li class="active"><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
                         <li><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
                     </ul>
                 </div>

@@ -4,7 +4,6 @@ from .models import OperaText,FolkSong,SongBook,SouthernMusic
 
 # Create your views here.
 
-
 def dictatedb_main(request):
     operatext_count = OperaText.objects.count()
     folksong_count = FolkSong.objects.count()
@@ -73,26 +72,46 @@ def folksong_detail(request,id):
 
 
 def songbook(request):
+    list = SongBook.objects.all()
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
 
+    try:
+        cur_dissertation = paginator.page(page)
 
-    return render(request,dictatedb/songbook.html,{})
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    return render(request, 'dictatedb/songbook.html', {'cur_dissertation': cur_dissertation, })
 
 
 
 def songbook_detail(request,id):
-
-
-    return render(request,dictatedb/songbook_detail.html,{})
+    target = SongBook.objects.get(id=id)
+    return render(request, 'dictatedb/songbook_detail.html', {'target': target})
 
 
 def southernmusic(request):
+    list = SouthernMusic.objects.all()
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
 
+    try:
+        cur_dissertation = paginator.page(page)
 
-    return render(request,dictatedb/southernmusic.html,{})
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    return render(request, 'dictatedb/southernmusic.html', {'cur_dissertation': cur_dissertation, })
 
 
 
 def southernmusic_detail(request,id):
-
-
-    return render(request,dictatedb/southernmusic_detail.html,{})
+    target = SouthernMusic.objects.get(id=id)
+    return render(request, 'dictatedb/southernmusic_detail.html', {'target': target})
