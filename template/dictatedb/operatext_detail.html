@@ -17,10 +17,10 @@
 					        <a href="{% url 'index' %}">首页</a>
 				        </li>
                         <li >
-                            <a href="{% url 'DocumentDB:documentdb_main' %}">文献数据库</a>
+                            <a href="{% url 'DocumentDB:documentdb_main' %}">口述史料库</a>
 				        </li>
                         <li >
-                            <a href="{% url 'DocumentDB:books' %}">图书库</a>
+                            <a href="{% url 'DocumentDB:books' %}">戏曲文本</a>
                         </li>
                         <li class="active">
                             {{ target.Title }}
@@ -31,38 +31,10 @@
             <div>
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
-                        <li id="left-navbar">
-                            <a href="{% url 'DocumentDB:periodical' %}">期刊
-                                <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
-                                    <span class="glyphicon glyphicon-list "></span>
-                                </span>
-                                <ul id="collapseone"  class="nav nav-pills nav-stacked collapse" >
-                                    <li><a class="text-center" href="">民间传说</a></li>
-                                    <li><a class="text-center" href="">民间歌谣</a></li>
-                                    <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
-                                    <li><a class="text-center" href="">戏曲</a></li>
-                                    <li><a class="text-center" href="">其他</a></li>
-                                </ul>
-                            </a>
-                        </li>
-                        <li id="left-navbar-lw">
-                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文
-                                <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
-                                    <span class="glyphicon glyphicon-list "></span>
-                                </span>
-                                <ul id="collapseone-lw"  class="nav nav-pills nav-stacked collapse" >
-                                    <li><a class="text-center" href="">民间传说</a></li>
-                                    <li><a class="text-center" href="">民间歌谣</a></li>
-                                    <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
-                                    <li><a class="text-center" href="">戏曲</a></li>
-                                    <li><a class="text-center" href="">其他</a></li>
-                                </ul>
-                            </a>
-                        </li>
-                        <li><a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a></li>
-                        <li class="active"><a href="{% url 'DocumentDB:books' %}">图书</a></li>
+                        <li class="active"><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
+                        <li><a href="{% url 'DictateDB:folksong' %}">歌谣</a></li>
+                        <li><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
+                        <li><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -102,20 +74,15 @@
                         </div>
                         <hr style="margin-top: 4px;margin-bottom: 8px;">
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">内容摘要：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">简介：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
                         </div>
                         <br>
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">关键词：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Keywords }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">资源来源：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.From }}</span>
                         </div>
                         <br>
                         <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">丛书名：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Series }}</span>
-                        </div>
-                        <br>
-                        <div>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">出版社：</span><span style="font-size:16px">{{ target.Publisher }}</span><span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">页码：</span> <span style="font-size: 16px">{{ target.Memo }}</span>
-                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">出版于：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Year }}</span>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">页数：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Memo }}</span>
                         </div>
                     {% endblock %}
                 </div>

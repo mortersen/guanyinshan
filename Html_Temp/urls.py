@@ -43,6 +43,7 @@ urlpatterns = [
     path('test/',test,name="test"),
     path('news/',include('News.urls',namespace='News')),
     path('documentdb/',include('DocumentDB.urls',namespace="DocumentDB")),
+    path('dictatedb/',include('DictateDB.urls',namespace='DictateDB')),
     path('admin/', admin.site.urls),
     path('gly/',managepage,name='managepage'),
     #re_path(r'',turntoindex),
