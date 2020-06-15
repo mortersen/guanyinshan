@@ -7,16 +7,16 @@ from .models import Periodical,Dissertation,Books,ConferencePapers
 def documentdb_main(request):
     #查询数据统计各种文献资源数量后传输进入
     periodical_count = Periodical.objects.count()
-    print(periodical_count)
+    #print(periodical_count)
     dissertation_count = Dissertation.objects.count()
-    print(dissertation_count)
+   # print(dissertation_count)
     conferencepapers_count = ConferencePapers.objects.count()
-    print(conferencepapers_count)
+    #print(conferencepapers_count)
     books_count = Books.objects.count()
-    print(books_count)
+    #print(books_count)
 
     documentdb_count = periodical_count + dissertation_count + conferencepapers_count + books_count
-    print(documentdb_count)
+   # print(documentdb_count)
 
     target = {
             'periodical_count': periodical_count, 'dissertation_count': dissertation_count, \
@@ -94,7 +94,7 @@ def books(request):
 
     # print(cur_dissertation.paginator.count)
     # print(cur_dissertation.number)
-    return render(request, 'documentdb/books.html', {'cur_dissertation': cur_dissertation})
+    return render(request, 'documentdb/operatext.html', {'cur_dissertation': cur_dissertation})
 
 def books_detail(request,id):
     target = Books.objects.get(id = id)
