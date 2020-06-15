@@ -1,0 +1,104 @@
+<!--dissertation_detail.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    {{ target.Title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="col-sm-12">
+                    <ul class="breadcrumb">
+				        <li>
+					        <a href="{% url 'index' %}">首页</a>
+				        </li>
+                        <li >
+                            <a href="{% url 'DocumentDB:documentdb_main' %}">口述史料库</a>
+				        </li>
+                        <li >
+                            <a href="{% url 'DocumentDB:books' %}">戏曲文本</a>
+                        </li>
+                        <li class="active">
+                            {{ target.Title }}
+                        </li>
+                    </ul><!--面包屑导航-->
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-3"><!--左侧导航栏-->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="{% url 'DictateDB:operatext' %}">戏曲文本</a></li>
+                        <li><a href="{% url 'DictateDB:folksong' %}">歌谣</a></li>
+                        <li><a href="{% url 'DictateDB:songbook' %}">歌册</a></li>
+                        <li><a href="{% url 'DictateDB:southernmusic' %}">南音曲谱</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    {% block document_content %}
+
+
+
+                        <h1 align="center">{{ target.Title }}</h1>
+                        <h4 align="center"style="color:#269abc">{{ target.Author }}</h4>
+                        <div style="font-size: 18px">
+                            <a href="#modal-test" role="button" class="glyphicon glyphicon-file" data-toggle="modal"></a>
+                            <div class="modal fade" id="modal-test" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" style="width:80%;height:95%; border: 1rem solid rgba(0,0,0,.1);">
+                                    <div class="modal-content" style="height: 100%;" >
+                                            <!--去掉遮罩窗体的头部
+						    <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							    <h4 class="modal-title" >
+								    标题
+							    </h4>
+						    </div>
+                            -->
+						                    <div class="modal-body" style="height: 100%;">
+                                                <div id="pdf-content" style = "height:100%;"></div>
+                                                <script src="{% static 'js/PDFObject.js' %}"></script>
+                                                <script>PDFObject.embed("{{ MEDIA_URL }}{{ target.FilePath }}", "#pdf-content");</script>
+                                            </div>
+						                    <!--去掉遮罩层的底部元素
+                            <div class="modal-footer">
+							    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        </div>
+					        -->
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ MEDIA_URL }}{{ target.FilePath }}" download="{{ MEDIA_URL }}{{ target.FilePath }}" class="glyphicon glyphicon-download-alt"></a>
+                        </div>
+                        <hr style="margin-top: 4px;margin-bottom: 8px;">
+                        <div>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">简介：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Abstract }}</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">资源来源：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.From }}</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="badge" style="background-color: #337ab7;line-height: 1;font-size:16px;">页数：</span><span style="font-size: 17px;line-height: 1.5;">{{ target.Memo }}</span>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-12" >
+                    {% block pagediv %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block includejs %}
+    <script src="{% static 'js/viewer-jquery.min.js' %}"></script>
+{% endblock %}
