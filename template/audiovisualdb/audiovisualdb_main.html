@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    文献资料数据库
+    影音资料库
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 					    <a href="{% url 'index' %}">首页</a>
 				    </li>
                         <li class="active">
-					        文献资料库
+					        影音资料库
 				        </li>
                     </ul><!--面包屑导航-->
                 </div>
@@ -26,37 +26,28 @@
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
                         <li id="left-navbar">
-                            <a href="{% url 'DocumentDB:periodical' %}">期刊
+                            <a href="{% url 'DocumentDB:periodical' %}">视频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
                                 <ul id="collapseone"  class="nav nav-pills nav-stacked collapse" >
-                                    <li><a class="text-center" href="">民间传说</a></li>
-                                    <li><a class="text-center" href="">民间歌谣</a></li>
-                                    <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
                                     <li><a class="text-center" href="">戏曲</a></li>
-                                    <li><a class="text-center" href="">其他</a></li>
+                                    <li><a class="text-center" href="">闽南童谣</a></li>
                                 </ul>
                             </a>
                         </li>
                         <li id="left-navbar-lw">
-                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文
+                            <a href="{% url 'DocumentDB:dissertation' %}">音频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
                                 <ul id="collapseone-lw"  class="nav nav-pills nav-stacked collapse" >
-                                    <li><a class="text-center" href="">民间传说</a></li>
-                                    <li><a class="text-center" href="">民间歌谣</a></li>
-                                    <li><a class="text-center" href="">民间故事</a></li>
-                                    <li><a class="text-center" href="">民间谚（谜）语</a></li>
-                                    <li><a class="text-center" href="">戏曲</a></li>
-                                    <li><a class="text-center" href="">其他</a></li>
+                                    <li><a class="text-center" href="">闽南歌谣</a></li>
+                                    <li><a class="text-center" href="">闽南故事</a></li>
+                                    <li><a class="text-center" href="">闽南顺口溜</a></li>
                                 </ul>
                             </a>
                         </li>
-                        <li><a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a></li>
-                        <li><a href="{% url 'DocumentDB:books' %}">图书</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -66,11 +57,11 @@
 					            <tr>
                                     <th></th>
 						            <th>
-                                        <span style="color:red;font-size:20px;">共有文献资料：</span>
+                                        <span style="color:red;font-size:20px;">共有影音资料：</span>
 						            </th>
 						            <th></th>
                                     <th>
-                                        <span style="color:red;font-size:20px;">{{ documentdb_count }}</span>
+                                        <span style="color:red;font-size:20px;">{{ audiovisualdb_count }}</span>
                                     </th>
                                 </tr>
 				            </thead>
@@ -79,50 +70,27 @@
 						            <td>
 						            </td>
 						            <td>
-                                        <a href="{% url 'DocumentDB:periodical' %}">期刊</a>
+                                        <a href="{% url 'DocumentDB:periodical' %}">视频</a>
 						            </td>
 						            <td>
 						            </td>
 						            <td>
-							            {{ periodical_count }}
+							            {{ video_count }}
 						            </td>
 					            </tr>
 					            <tr class="success">
 						<td>
 						</td>
 						<td>
-                            <a href="{% url 'DocumentDB:dissertation' %}">学位论文</a>
+                            <a href="{% url 'DocumentDB:dissertation' %}">音频</a>
 						</td>
 						<td>
 						</td>
 						<td>
-							{{ dissertation_count }}
+							{{ audio_count }}
 						</td>
 					</tr>
-					            <tr class="info">
-						<td>
-						</td>
-						<td>
-                            <a href="{% url 'DocumentDB:conferencepapers' %}">会议论文</a>
-						</td>
-						<td>
-						</td>
-						<td>
-							{{ conferencepapers_count }}
-						</td>
-					</tr>
-					            <tr class="success">
-						<td>
-						</td>
-						<td>
-                            <a href="{% url 'DocumentDB:books' %}">图书</a>
-						</td>
-						<td>
-						</td>
-						<td>
-							{{ books_count }}
-						</td>
-					</tr>
+
 				            </tbody>
 			            </table>
                     {% endblock %}

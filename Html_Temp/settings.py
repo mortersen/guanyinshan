@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'News',
     'DocumentDB',
     'DictateDB',
+    'AudiovisualDB',
 ]
 
 MIDDLEWARE = [

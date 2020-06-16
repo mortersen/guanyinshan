@@ -91,10 +91,9 @@ def books(request):
         cur_dissertation = paginator.page(1)
     except EmptyPage:
         cur_dissertation = paginator.page(paginator.num_pages)
-
     # print(cur_dissertation.paginator.count)
     # print(cur_dissertation.number)
-    return render(request, 'documentdb/operatext.html', {'cur_dissertation': cur_dissertation})
+    return render(request, 'documentdb/books.html', {'cur_dissertation': cur_dissertation})
 
 def books_detail(request,id):
     target = Books.objects.get(id = id)
