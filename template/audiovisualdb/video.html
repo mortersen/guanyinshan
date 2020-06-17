@@ -16,8 +16,11 @@
 				        <li>
 					    <a href="{% url 'index' %}">首页</a>
 				    </li>
+                        <li>
+                            <a href="{% url 'AudiovisualDB:audiovisualdb_main' %}">影音资料库</a>
+                            </li>
                         <li class="active">
-					        影音资料库
+
 				        </li>
                     </ul><!--面包屑导航-->
                 </div>
@@ -26,7 +29,7 @@
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
                         <li id="left-navbar">
-                            <a href="{% url 'AudiovisualDB:video' %}">视频库
+                            <a href="{% url 'DocumentDB:periodical' %}">视频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
@@ -37,7 +40,7 @@
                             </a>
                         </li>
                         <li id="left-navbar-lw">
-                            <a href="{% url 'AudiovisualDB:audio' %}">音频库
+                            <a href="{% url 'DocumentDB:dissertation' %}">音频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
