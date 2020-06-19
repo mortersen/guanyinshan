@@ -16,7 +16,7 @@ def video(request):
     list = Video.objects.all()
     page = request.GET.get('page')
     # print(page)
-    paginator = Paginator(list, 8)
+    paginator = Paginator(list, 4)
 
     try:
         cur_dissertation = paginator.page(page)
@@ -37,7 +37,7 @@ def audio(request):
     list = Video.objects.all()
     page = request.GET.get('page')
     # print(page)
-    paginator = Paginator(list, 8)
+    paginator = Paginator(list, 4)
 
     try:
         cur_dissertation = paginator.page(page)

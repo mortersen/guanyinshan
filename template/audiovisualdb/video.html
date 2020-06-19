@@ -29,7 +29,7 @@
                 <div class="col-sm-3"><!--左侧导航栏-->
                     <ul class="nav nav-pills nav-stacked">
                         <li id="left-navbar">
-                            <a href="{% url 'DocumentDB:periodical' %}">视频库
+                            <a href="{% url 'AudiovisualDB:video' %}">视频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar" href="#collapseone">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li id="left-navbar-lw">
-                            <a href="{% url 'DocumentDB:dissertation' %}">音频库
+                            <a href="{% url 'AudiovisualDB:audio' %}">音频库
                                 <span class="pull-right" style="border:none" data-toggle="collapse" data-parent="#left-navbar-lw" href="#collapseone-lw">
                                     <span class="glyphicon glyphicon-list "></span>
                                 </span>
@@ -55,53 +55,73 @@
                 </div>
                 <div class="col-sm-9">
                     {% block document_content %}
-                        <table class="table table-striped">
-				            <thead>
-					            <tr>
-                                    <th></th>
-						            <th>
-                                        <span style="color:red;font-size:20px;">共有影音资料：</span>
-						            </th>
-						            <th></th>
-                                    <th>
-                                        <span style="color:red;font-size:20px;">{{ audiovisualdb_count }}</span>
-                                    </th>
-                                </tr>
-				            </thead>
-				            <tbody>
-					            <tr class="info" >
-						            <td>
-						            </td>
-						            <td>
-                                        <a href="{% url 'DocumentDB:periodical' %}">视频</a>
-						            </td>
-						            <td>
-						            </td>
-						            <td>
-							            {{ video_count }}
-						            </td>
-					            </tr>
-					            <tr class="success">
-						<td>
-						</td>
-						<td>
-                            <a href="{% url 'DocumentDB:dissertation' %}">音频</a>
-						</td>
-						<td>
-						</td>
-						<td>
-							{{ audio_count }}
-						</td>
-					</tr>
+                        {% for item in cur_dissertation %}
+                            <div class="container">
 
-				            </tbody>
-			            </table>
+
+                                            <video width="240" height="180" controls>
+                                             <source src="{{ MEDIA_URL }}{{ item.FilePath }}" type="video/mp4">
+                                            </video>
+                                            <h4>{{ item.Title }}</h4>
+                            </div>
+
+                        {% empty %}
+                            暂无视频资料！
+                        {% endfor %}
+                        
                     {% endblock %}
                 </div>
             </div>
             <div>
                 <div class="col-sm-12" >
-                    {% block pagediv %}{% endblock %}
+                    {% block pagediv %}
+                        <ul class="pager">
+                                {% if cur_dissertation.number == 1 %}
+                                    <li class="disabled">
+                                        <span>首页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.has_previous %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.previous_page_number }}">上一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>上一页</span>
+                                    </li>
+                                {% endif %}
+
+                                <li>
+                                    <span>{{ cur_dissertation.number }}&nbspof&nbsp{{ cur_dissertation.paginator.num_pages }}</span>
+                                </li>
+                                {% if cur_dissertation.has_next %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.next_page_number }}">下一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>下一页</span>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.number == cur_dissertation.paginator.num_pages %}
+                                    <li class="disabled">
+                                        <span>末页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+    	                                <a href="?page={{ cur_dissertation.paginator.num_pages }}">末页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    GO<input type="text" size="2">
+                                </li>
+
+                            </ul>
+                    {% endblock %}
                 </div>
             </div>
         </div>
