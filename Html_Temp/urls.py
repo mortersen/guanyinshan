@@ -45,6 +45,7 @@ urlpatterns = [
     path('documentdb/',include('DocumentDB.urls',namespace="DocumentDB")),
     path('dictatedb/',include('DictateDB.urls',namespace='DictateDB')),
     path('audiovisual/',include('AudiovisualDB.urls',namespace='AudiovisualDB')),
+    path('searchx/',include('SearchX.urls',namespace='SearchX')),
     path('admin/', admin.site.urls),
     path('gly/',managepage,name='managepage'),
     #re_path(r'',turntoindex),

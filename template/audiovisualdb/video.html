@@ -56,13 +56,16 @@
                 <div class="col-sm-9">
                     {% block document_content %}
                         {% for item in cur_dissertation %}
-                            <div class="container">
+                            <div class="container" style="height: 220px;width:45%;float:left;">
+                                <div class="row" style="text-align: center;">
+                                     <video width="240" height="180" controls>
+                                         <source src="{{ MEDIA_URL }}{{ item.FilePath }}" type="video/mp4">
+                                     </video>
+                                </div>
+                                <div class="row">
+                                    <h4 style="text-align: center;margin-bottom: 0px;">{{ item.Title }}</h4>
+                                </div>
 
-
-                                            <video width="240" height="180" controls>
-                                             <source src="{{ MEDIA_URL }}{{ item.FilePath }}" type="video/mp4">
-                                            </video>
-                                            <h4>{{ item.Title }}</h4>
                             </div>
 
                         {% empty %}

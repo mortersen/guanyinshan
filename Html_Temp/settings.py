@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'DocumentDB',
     'DictateDB',
     'AudiovisualDB',
+    'SearchX',
 ]
 
 MIDDLEWARE = [
