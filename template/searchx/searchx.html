@@ -17,14 +17,29 @@
                 </div>
                 <div class="col-sm-6">
                     {% block document_content %}
-                        <div style="margin-top: 28%;text-align: center;background-color: #31b0d5">
-                            <form action="" method="post">
-                                {% csrf_token %}
-                                <span>
-                                    <input type="text" class="form-control" name="searchwhat" placeholder="搜索标题"style="width:80%;display: inline">
-                                    <button style="display:inline;float:right;" class="btn-primary btn-group-lg" type="submit" ><span class="glyphicon glyphicon-search"></span></button>
-
-                                </span>
+                        <div style="margin-top: 20%;margin-bottom:33%;">
+                            <form action="{% url 'SearchX:searchXresual' %}" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                                <div class="form-group" >
+                                    <lable class="btn-lg" for="select1">查找范围：</lable>
+                                    <select class="btn-lg" name="sdb" id="select1">
+                                        <option value="QK" selected="selected">期刊库</option>
+                                        <option value="TS" >图书库</option>
+                                        <option value="XWLW" >学位论文库</option>
+                                        <option value="HYLW" >会议论文库</option>
+                                        <option value="XQWB" >戏曲文本库</option>
+                                        <option value="GY" >歌谣库</option>
+                                        <option value="GC" >歌册库</option>
+                                        <option value="NYQP" >南音曲谱库</option>
+                                        <option value="SP" >视频库</option>
+                                        <option value="YP" >音频库</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <lable class="btn-lg" for="inskey">查找内容：</lable>
+                                    <input class="btn-lg" id='inskey' name='skey' type="text">
+                                    <input class="btn-lg" value="搜索" type="submit">
+                                </div>
                             </form>
                         </div>
 

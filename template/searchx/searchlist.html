@@ -1,0 +1,82 @@
+<!--periodical.html-->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}
+    搜索
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+
+            <div>
+                <div class="col-sm-3"><!--左侧导航栏-->
+
+                </div>
+                <div class="col-sm-6">
+                    {% block document_content %}
+
+                    {% endblock %}
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                {% block pagediv %}
+                            <ul class="pager">
+                                {% if cur_dissertation.number == 1 %}
+                                    <li class="disabled">
+                                        <span>首页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.has_previous %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.previous_page_number }}">上一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>上一页</span>
+                                    </li>
+                                {% endif %}
+
+                                <li>
+                                    <span>{{ cur_dissertation.number }}&nbspof&nbsp{{ cur_dissertation.paginator.num_pages }}</span>
+                                </li>
+                                {% if cur_dissertation.has_next %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.next_page_number }}">下一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>下一页</span>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.number == cur_dissertation.paginator.num_pages %}
+                                    <li class="disabled">
+                                        <span>末页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+    	                                <a href="?page={{ cur_dissertation.paginator.num_pages }}">末页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    GO<input type="text" size="2">
+                                </li>
+
+                            </ul>
+                        {% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
