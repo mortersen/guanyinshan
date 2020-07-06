@@ -3,7 +3,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from DocumentDB.models import Books,Periodical,Dissertation,ConferencePapers
 from DictateDB.models import OperaText,FolkSong,SongBook,SouthernMusic
 from AudiovisualDB.models import Audio,Video
-
+from DocumentDB.views import books_by_title
 
 # Create your views here.
 
@@ -21,8 +21,7 @@ def searchXresual(request):
     print(sdb, skey)
 
     if sdb == 'TS':
-        searchlist = Books.objects.filter(Title__contains=skey)
-        sourcepath = 'DocumentDB:books_detail'
+        return books_by_title(request,skey)
     elif sdb == 'QK':
         searchlist = Periodical.objects.filter(Title__contains=skey)
         sourcepath = 'DocumentDB:periodical_detail'

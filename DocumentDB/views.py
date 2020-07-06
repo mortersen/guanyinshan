@@ -99,6 +99,28 @@ def books_detail(request,id):
     target = Books.objects.get(id = id)
     return render(request,'documentdb/books_detail.html',{'target':target})
 
+def books_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = Books.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'documentdb/books_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
+
 
 def conferencepapers(request):
     list = ConferencePapers.objects.all()
