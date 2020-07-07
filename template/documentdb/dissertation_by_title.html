@@ -14,7 +14,7 @@
                 <div class="col-sm-12">
                     <ul class="breadcrumb">
 				        <li>
-					        文献资料图书库
+					        文献资料学位论文库
 				        </li>
                         <li>
                             搜索关键字词"<strong style="color:red;">{{ skey }}</strong>"，共获得<strong style="color:red;">{{ count }}</strong>条查询结果。
@@ -32,16 +32,16 @@
 				            <thead>
 					            <tr>
                                     <th>
-                                        <span style="color:darkblue;font-size:20px;">书名</span>
+                                        <span style="color:darkblue;font-size:20px;">论文标题</span>
 						            </th>
                                     <th>
                                         <span style="color:darkblue;font-size:20px;">作者</span>
 						            </th>
 						            <th>
-                                        <span style="color:darkblue;font-size:20px;">出版社</span>
+                                        <span style="color:darkblue;font-size:20px;">主要内容</span>
                                     </th>
                                     <th>
-                                        <span style="color:darkblue;font-size:20px;">年份</span>
+                                        <span style="color:darkblue;font-size:20px;">发表单位</span>
                                     </th>
                                 </tr>
 				            </thead>
@@ -49,16 +49,16 @@
                                 {% for item in cur_dissertation %}
 					                <tr class="" >
 						            <td>
-                                        <a href="{% url 'DocumentDB:books_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
+                                        <a href="{% url 'DocumentDB:dissertation_detail'  item.id  %} " target='view_windows'>{{ item.Title }}</a>
 						            </td>
                                     <td>
                                         {{ item.Author }}
 						            </td>
 						            <td>
-                                        {{ item.Publisher }}
+                                        {{ item.TertiaryAuthor }}
 						            </td>
 						            <td>
-							            {{ item.Year }}
+							            {{ item.Publisher }}
 						            </td>
 					            </tr>
                                 {% empty %}
@@ -83,12 +83,12 @@
                                     </li>
                                 {% else %}
                                     <li>
-                                        <a href="{% url 'DocumentDB:books_by_title' %}?page=1&skey={{ skey }}">首页</a>
+                                        <a href="{% url 'DocumentDB:dissertation_by_title' %}?page=1&skey={{ skey }}">首页</a>
                                     </li>
                                 {% endif %}
                                 {% if cur_dissertation.has_previous %}
                                     <li>
-                                        <a href=" {% url 'DocumentDB:books_by_title' %}?page={{ cur_dissertation.previous_page_number }}&skey={{ skey }}" >上一页</a>
+                                        <a href=" {% url 'DocumentDB:dissertation_by_title' %}?page={{ cur_dissertation.previous_page_number }}&skey={{ skey }}" >上一页</a>
                                     </li>
                                 {% else %}
                                     <li class="disabled">
@@ -101,7 +101,7 @@
                                 </li>
                                 {% if cur_dissertation.has_next %}
                                     <li>
-                                        <a href="{% url 'DocumentDB:books_by_title' %}?page={{ cur_dissertation.next_page_number }}&skey={{ skey }}">下一页</a>
+                                        <a href="{% url 'DocumentDB:dissertation_by_title' %}?page={{ cur_dissertation.next_page_number }}&skey={{ skey }}">下一页</a>
                                     </li>
                                 {% else %}
                                     <li class="disabled">
@@ -114,7 +114,7 @@
                                     </li>
                                 {% else %}
                                     <li>
-    	                                <a href="{% url 'DocumentDB:books_by_title' %}?page={{ cur_dissertation.paginator.num_pages }}&skey={{ skey }}">末页</a>
+    	                                <a href="{% url 'DocumentDB:dissertation_by_title' %}?page={{ cur_dissertation.paginator.num_pages }}&skey={{ skey }}">末页</a>
                                     </li>
                                 {% endif %}
                                 <li>

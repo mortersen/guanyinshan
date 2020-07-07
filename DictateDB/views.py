@@ -44,6 +44,27 @@ def operatext_detail(request,id):
     return render(request,'dictatedb/operatext_detail.html',{'target':target})
 
 
+def operatext_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = OperaText.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'DictateDB/operatext_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def folksong(request):
@@ -63,12 +84,31 @@ def folksong(request):
     return render(request, 'dictatedb/folksong.html', {'cur_dissertation': cur_dissertation, })
 
 
-
-
 def folksong_detail(request,id):
     target = FolkSong.objects.get(id=id)
     return render(request, 'dictatedb/folksong_detail.html', {'target': target})
 
+def folksong_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = FolkSong.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'DictateDB/folksong_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def songbook(request):
@@ -88,10 +128,32 @@ def songbook(request):
     return render(request, 'dictatedb/songbook.html', {'cur_dissertation': cur_dissertation, })
 
 
-
 def songbook_detail(request,id):
     target = SongBook.objects.get(id=id)
     return render(request, 'dictatedb/songbook_detail.html', {'target': target})
+
+
+def songbook_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = SongBook.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'DictateDB/songbook_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def southernmusic(request):
@@ -115,3 +177,26 @@ def southernmusic(request):
 def southernmusic_detail(request,id):
     target = SouthernMusic.objects.get(id=id)
     return render(request, 'dictatedb/southernmusic_detail.html', {'target': target})
+
+
+def southernmusic_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = SouthernMusic.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'DictateDB/southernmusic_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})

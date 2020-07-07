@@ -51,6 +51,27 @@ def periodical_detail(request,id):
     target = Periodical.objects.get(id=id)
     return render(request, 'documentdb/periodical_detail.html', {'target': target})
 
+def periodical_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = Periodical.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'documentdb/periodical_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def dissertation(request):
@@ -76,6 +97,29 @@ def dissertation(request):
 def dissertation_detail(request,id):
     target = Dissertation.objects.get(id = id)
     return render(request,'documentdb/dissertation_detail.html',{'target':target})
+
+
+def dissertation_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = Dissertation.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'documentdb/dissertation_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def books(request):
@@ -143,6 +187,29 @@ def conferencepapers(request):
 def conferencepapers_detail(request,id):
     target = ConferencePapers.objects.get(id = id)
     return render(request,'documentdb/conferencepapers_detail.html',{'target':target})
+
+
+def conferencepapers_by_title(request,str=''):
+    if str== '':
+        str = request.GET.get('skey')
+    bylist = ConferencePapers.objects.filter(Title__contains=str)
+    count = bylist.count()
+    if count == 0:
+        return HttpResponse("查询结果为空！")
+    else:
+        page = request.GET.get('page')
+        paginator = Paginator(bylist, 6)
+
+        try:
+            cur_dissertation = paginator.page(page)
+
+        except PageNotAnInteger:
+            cur_dissertation = paginator.page(1)
+        except EmptyPage:
+            cur_dissertation = paginator.page(paginator.num_pages)
+        # print(cur_dissertation.paginator.count)
+        # print(cur_dissertation.number)
+        return render(request, 'documentdb/conferencepapers_by_title.html', {'cur_dissertation': cur_dissertation,'skey':str,'count':count,})
 
 
 def periodical_main(request):

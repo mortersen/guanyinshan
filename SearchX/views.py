@@ -3,8 +3,8 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from DocumentDB.models import Books,Periodical,Dissertation,ConferencePapers
 from DictateDB.models import OperaText,FolkSong,SongBook,SouthernMusic
 from AudiovisualDB.models import Audio,Video
-from DocumentDB.views import books_by_title
-
+from DocumentDB.views import books_by_title,periodical_by_title,dissertation_by_title,conferencepapers_by_title
+from DictateDB.views import operatext_by_title,folksong_by_title,songbook_by_title,southernmusic_by_title
 # Create your views here.
 
 def searchx_main(request):
@@ -23,33 +23,19 @@ def searchXresual(request):
     if sdb == 'TS':
         return books_by_title(request,skey)
     elif sdb == 'QK':
-        searchlist = Periodical.objects.filter(Title__contains=skey)
-        sourcepath = 'DocumentDB:periodical_detail'
+        return periodical_by_title(request,skey)
     elif sdb == 'XWLW':
-        searchlist = Dissertation.objects.filter(Title__contains=skey)
-        sourcepath = 'DocumentDB:dissertation_detail'
+        return dissertation_by_title(request,skey)
     elif sdb == 'HYLW':
-        searchlist = ConferencePapers.objects.filter(Title__contains=skey)
-        sourcepath = 'DocumentDB:conferencepapers_detail'
+        return conferencepapers_by_title(request,skey)
     elif sdb == 'XQWB':
-        searchlist = OperaText.objects.filter(Title__contains=skey)
-        sourcepath = 'DictateDB:operatext_detail'
+        return operatext_by_title(request,skey)
     elif sdb == 'GY':
-        searchlist = FolkSong.objects.filter(Title__contains=skey)
-        sourcepath = 'DictateDB:folksong_detail'
+        return folksong_by_title(request,skey)
     elif sdb == 'GC':
-        searchlist = SongBook.objects.filter(Title__contains=skey)
-        sourcepath = 'DictateDB:songbook_detail'
+        return songbook_by_title(request,skey)
     elif sdb == 'NYQP':
-        searchlist = SouthernMusic.objects.filter(Title__contains=skey)
-        sourcepath = 'DictateDB:southernmusic_detail'
-    elif sdb == 'SP':
-        searchlist = Video.objects.filter(Title__contains=skey)
-        sourcepath = 'AudiovisualDB:video'
-    elif sdb == 'YP':
-        searchlist = Audio.objects.filter(Title__contains=skey)
-        sourcepath = 'AudiovisualDB:audio'
-
+        return southernmusic_by_title(request,skey)
     if searchlist.count() == 0:
         return HttpResponse("查询结果为空！")
 
