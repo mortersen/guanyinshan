@@ -9,7 +9,7 @@ class OperaText(models.Model):#戏曲数据模型
     From = models.CharField(max_length=200,verbose_name='资源来源')
     Memo = models.CharField(max_length=20,verbose_name='页数')
     Author = models.CharField(max_length=50,verbose_name='作者')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地戏曲文本文件')
+    FilePath = models.FileField(upload_to='OPERATEXT/%Y/%m', verbose_name='上传本地戏曲文本文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -26,7 +26,7 @@ class FolkSong(models.Model):#歌谣数据模型
     From = models.CharField(max_length=200, verbose_name='资源来源')
     Memo = models.CharField(max_length=20, verbose_name='页数')
     Author = models.CharField(max_length=50, verbose_name='作者')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地歌谣文本文件')
+    FilePath = models.FileField(upload_to='FOLKSONG/%Y/%m', verbose_name='上传本地歌谣文本文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -44,7 +44,7 @@ class SongBook(models.Model):#歌册数据模型
     From = models.CharField(max_length=200, verbose_name='资源来源')
     Memo = models.CharField(max_length=20, verbose_name='页数')
     Author = models.CharField(max_length=50, verbose_name='作者')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地歌册文件')
+    FilePath = models.FileField(upload_to='SONGBOOK/%Y/%m', verbose_name='上传本地歌册文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -61,7 +61,7 @@ class SouthernMusic(models.Model):#南音曲谱数据模型
     From = models.CharField(max_length=200, verbose_name='资源来源')
     Memo = models.CharField(max_length=20, verbose_name='页数')
     Author = models.CharField(max_length=50, verbose_name='作者')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地南音曲谱文件')
+    FilePath = models.FileField(upload_to='SOUTHERNMUSIC/%Y/%m', verbose_name='上传本地南音曲谱文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):

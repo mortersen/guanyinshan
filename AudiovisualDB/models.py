@@ -12,7 +12,7 @@ class Video(models.Model):#视频数据模型
         )
     TypeOf = models.CharField(max_length=2, choices=TYPE_CHOICE, default='XQ', verbose_name='视频分类')
     Title = models.CharField(max_length=200,verbose_name='视频名称')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地视频文件')
+    FilePath = models.FileField(upload_to='VIDEO/%Y/%m', verbose_name='上传本地视频文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -33,7 +33,7 @@ class Audio(models.Model):#音频数据模型
         )
     TypeOf = models.CharField(max_length=2, choices=TYPE_CHOICE, default='GY', verbose_name='音频分类')
     Title = models.CharField(max_length=200,verbose_name='音频名称')
-    FilePath = models.FileField(upload_to='CON_PAPERS/%Y/%m', verbose_name='上传本地音频文件')
+    FilePath = models.FileField(upload_to='AUDIO/%Y/%m', verbose_name='上传本地音频文件')
     UpdateTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
