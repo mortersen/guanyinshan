@@ -45,6 +45,113 @@ def periodical(request):
     # print(cur_dissertation.number)
     return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
 
+def periodical_MC(request):
+    list = Periodical.objects.filter(TypeOf='MC')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
+
+def periodical_MG(request):
+    list = Periodical.objects.filter(TypeOf='MG')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
+
+def periodical_MS(request):
+    list = Periodical.objects.filter(TypeOf='MS')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
+
+def periodical_XQ(request):
+    list = Periodical.objects.filter(TypeOf='XQ')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
+
+def periodical_YM(request):
+    list = Periodical.objects.filter(TypeOf='YM')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
+
+def periodical_QT(request):
+    list = Periodical.objects.filter(TypeOf='QT')
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request, 'documentdb/periodical.html', {'cur_dissertation': cur_dissertation})
 
 
 def periodical_detail(request,id):
@@ -92,11 +199,124 @@ def dissertation(request):
     #print(cur_dissertation.number)
     return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
 
+def dissertation_MC(request):
+    list = Dissertation.objects.filter(TypeOf='MC')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+def dissertation_MG(request):
+    list = Dissertation.objects.filter(TypeOf='MG')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+
+
+def dissertation_MS(request):
+    list = Dissertation.objects.filter(TypeOf='MS')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+def dissertation_XQ(request):
+    list = Dissertation.objects.filter(TypeOf='XQ')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+
+def dissertation_YM(request):
+    list = Dissertation.objects.filter(TypeOf='YM')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
+
+
+def dissertation_QT(request):
+    list = Dissertation.objects.filter(TypeOf='QT')
+    page = request.GET.get('page')
+    #print(page)
+    paginator = Paginator(list,8)
+
+    try:
+        cur_dissertation = paginator.page(page)
+
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+
+    #print(cur_dissertation.paginator.count)
+    #print(cur_dissertation.number)
+    return render(request,'documentdb/dissertation.html',{'cur_dissertation':cur_dissertation})
 
 
 def dissertation_detail(request,id):
     target = Dissertation.objects.get(id = id)
     return render(request,'documentdb/dissertation_detail.html',{'target':target})
+
+
 
 
 def dissertation_by_title(request,str=''):
