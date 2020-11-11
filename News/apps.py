@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class NewsConfig(AppConfig):
     name = 'News'
-    verbose_name = "新闻资讯"
+    verbose_name = "图片库"

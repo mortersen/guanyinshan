@@ -8,6 +8,9 @@ class Video(models.Model):#视频数据模型
         (
             ('XQ', '戏曲'),
             ('TY', '闽南童谣'),
+            ('SJ','念四句'),
+            ('SG','山歌'),
+            ('CT','古泉州刺桐史'),
 
         )
     TypeOf = models.CharField(max_length=2, choices=TYPE_CHOICE, default='XQ', verbose_name='视频分类')
