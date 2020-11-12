@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'DictateDB',
     'AudiovisualDB',
     'SearchX',
+    'OnlineConsult',
 ]
 
 MIDDLEWARE = [
