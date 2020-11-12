@@ -6,13 +6,21 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger#引入分
 # Create your views here.
 
 
-def news_top_list(request,num = 1):
-    all_info = Information.objects.all().order_by("-updatetime")
-    pages = Paginator(all_info,5)#按5为单位将news对象分割成分页对象组
-    info = pages.page(num)#取第num页对象列表
-    content = {'info' : info,'pages':pages}
-    return render(request, 'news_top_list.html',content)
+def news_top_list(request):
+    list = Information.objects.all().order_by("-updatetime")
+    page = request.GET.get('page')
+    # print(page)
+    paginator = Paginator(list, 5)
+    try:
+        cur_dissertation = paginator.page(page)
 
+    except PageNotAnInteger:
+        cur_dissertation = paginator.page(1)
+    except EmptyPage:
+        cur_dissertation = paginator.page(paginator.num_pages)
+    # print(cur_dissertation.paginator.count)
+    # print(cur_dissertation.number)
+    return render(request,'news_top_list.html', {'cur_dissertation': cur_dissertation})
 
 def news_detail_byid(request,id):
     try:

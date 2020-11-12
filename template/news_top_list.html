@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    新闻资讯
+    图片库
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
 					    图片
 				    </li>
                 </ul><!--面包屑导航-->
-                {% for info_item in info %}
+                {% for info_item in cur_dissertation %}
                     <blockquote>
 				            <a href="{% url 'News:news_detail' info_item.id %}"><h2 class="bg-success">{{ info_item.caption }}</h2></a>
                             <small><cite>{{ info_item.updatetime }}</cite></small>
@@ -28,6 +28,62 @@
                 {% empty %}
                     <h3>暂无内容，敬请期待！</h3>
                 {% endfor %}
+                <div>
+                <div>
+
+                    <div class="">
+                        {% block pagediv %}
+                            <ul class="pager">
+                                {% if cur_dissertation.number == 1 %}
+                                    <li class="disabled">
+                                        <span>首页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="?page=1">首页</a>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.has_previous %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.previous_page_number }}">上一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>上一页</span>
+                                    </li>
+                                {% endif %}
+
+                                <li>
+                                    <span>{{ cur_dissertation.number }}&nbspof&nbsp{{ cur_dissertation.paginator.num_pages }}</span>
+                                </li>
+                                {% if cur_dissertation.has_next %}
+                                    <li>
+                                        <a href="?page={{ cur_dissertation.next_page_number }}">下一页</a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <span>下一页</span>
+                                    </li>
+                                {% endif %}
+                                {% if cur_dissertation.number == cur_dissertation.paginator.num_pages %}
+                                    <li class="disabled">
+                                        <span>末页</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+    	                                <a href="?page={{ cur_dissertation.paginator.num_pages }}">末页</a>
+                                    </li>
+                                {% endif %}
+                                <li>
+                                    GO<input type="text" size="2">
+                                </li>
+
+                            </ul>
+                    {% endblock %}
+                    </div>
+
+                </div>
+            </div>
             </div>
         </div>
     </div>
